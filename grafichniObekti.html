@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="suica.min.js"></script>
+    <script>
+        function createRuler() {
+            new Suica();
+            lookAt([20, 60, 0], [1, 1, 1], [0, 1, 1]);
+
+            cuboid([0, 0, 2.5], [40, 0.7, 4]).custom({
+                color: [1, 0.5, 1]
+            });
+            spheroid([19.8, 0, 2.5], [1, 0.5, 2]).custom({
+                color: [1, 0.5, 1]
+            });
+            spheroid([-19.8, 0, 2.5], [1, 0.5, 2]).custom({
+                color: [1, 0.5, 1]
+            });
+            cuboid([18, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+
+            cuboid([17.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+
+            cuboid([16.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([16, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([15.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([14.6, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([13.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([13.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([12.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([12, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([11.2, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([10.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([9.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([9.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([8.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([7.8, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([7, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([6.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([5.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([5.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([4.4, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([3.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([3, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([2.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([1.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([1, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([0.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-0.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-1, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-1.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-2.4, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-3.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-3.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-4.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-5, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-5.8, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-6.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-7.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-7.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-8.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-9.2, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-10, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-10.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-11.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-11.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-12.6, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-13.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-14, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-14.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-15.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-16, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-16.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-17.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+        }
+
+        function createWeighingMachine() {
+            new Suica();
+            lookAt([20, 40, 35], [1, 5, 5], [-1, 1, 5]);
+            //demo(40);
+            cuboid([0, 0, 2.5], [20, 20, 4]).custom({
+                color: [0.6, 0.6, 0.6]
+            });
+            circle([-5, 0.5, 5], 4).custom({
+                color: [1, 1, 1]
+            });
+
+            segment([-9, 0.5, 5], [-6, 0.5, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-9, 2, 5], [-7.5, 1.7, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-8, 3.2, 5], [-7, 2.7, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-6.8, 4.2, 5], [-6, 3.5, 5]).custom({
+                color: [0, 0, 0]
+            });
+
+            segment([-9, -1, 5], [-7.5, -0.5, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-8, -2, 5], [-7, -1.1, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-7, -3, 5], [-6.4, -2, 5]).custom({
+                color: [0, 0, 0]
+            });
+        }
+
+        function createClock() {
+            p = new Suica();
+            lookAt([60, 0, 100], [0, 0, 0], [0, 0, 1]);
+
+            clock = group([]);
+            base = cylindroid([0, 0, 0], [24, 24], 2);
+
+            point([0, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            strelka = segment([0, 0, 2.2], [-16, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var strelka2 = segment([0, 0, 2.2], [4, 7, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var dvanadesetChasa = segment([-24, 0, 2.2], [-18.5, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var triChasa = segment([0, 24, 2.2], [0, 18.5, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var shestChasa = segment([24, 0, 2.2], [18.5, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var devetChasa = segment([0, -24, 2.2], [0, -18.5, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+
+        }
+
+        function createThermometer() {
+            new Suica();
+
+            cyl = cylinder([7, 3, 0], 2, 13).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            topPart = sphere([7, 3, 12.9], 2).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            bottomPart = sphere([7, 3, 0], 4).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            blueBottomPart = sphere([10.5, 5, 1.3], 3).custom({
+                color: [0.01, 0.7, 0.95]
+            });
+            blueCyl = cylinder([10.5, 5, 1.5], 1.3, 6).custom({
+                color: [0.01, 0.7, 0.95]
+            });
+            blueTopPart = sphere([10.5, 5, 6.9], 1.3).custom({
+                color: [0.01, 0.7, 0.95]
+            });
+
+            cyl1 = cylinder([-3, 8, -1.9], 2, 13.6).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            topPart1 = sphere([-3, 8, 12], 2).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            bottomPart1 = sphere([-3, 8, -2.2], 4).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            greenCyl = cylinder([0, 9.5, 1.5], 1.3, 7.5).custom({
+                color: [0.6, 0.9, 0.01]
+            });
+            greenTopPart = sphere([0, 9.5, 9], 1.3).custom({
+                color: [0.6, 0.9, 0.01]
+            });
+            greenBottomPart = sphere([0, 9.5, -0.7], 3).custom({
+                color: [0.6, 0.9, 0.01]
+            });
+            cyl2 = cylinder([-15, 13, -2.5], 2, 13.6).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            topPart2 = sphere([-15, 13, 11], 2).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            bottomPart2 = sphere([-15, 13, -5], 4).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            redCyl = cylinder([-12, 14.2, -1.5], 1.3, 13.5).custom({
+                color: [1, 0.3, 0.3]
+            });
+            redTopPart = sphere([-12, 14.2, 11.8], 1.3).custom({
+                color: [1, 0.3, 0.3]
+            });
+            redBottomPart = sphere([-12, 14.2, -4], 3).custom({
+                color: [1, 0.3, 0.3]
+            });
+        }
+
+        function createLight() {
+            new Suica();
+            light = group([]);
+            bottomLightPart = cylinder([0, 0, -10], 3, 5).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            secondBottomPart = sphere([0, 0, -10], 3).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            secondBottomLightPart = cylinder([0, 0, -4], 5, 6).custom({
+                color: [1, 0.8, 0.1]
+            });
+            topLightPart = sphere([0, 0, 6], 8).custom({
+                color: [1, 0.8, 0.1]
+            });
+            light.add(bottomLightPart);
+            light.add(secondBottomLightPart);
+            light.add(secondBottomPart);
+            light.add(topLightPart);
+
+            first = segment([0, 3, 17], [-4, 3, 23]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            second = segment([-3, 7, 15], [-9, 10, 21]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            third = segment([10, 3, 18], [14, 3, 24]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            forth = segment([15, 1, 16], [27, 5, 22]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            light.add(first);
+            light.add(second);
+            light.add(third);
+            light.add(forth);
+        };
+
+        function createAmper() {
+            new Suica();
+            //oxyz();
+            var q1 = sphere([-2, -8, 8], 4).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var q2 = sphere([-8, 8, 8.5], 4).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstLineForQ1 = segment([8, -4, 10], [20, -4, 12]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstArrowForQ1 = segment([20, -4, 12], [15, -4, 9]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var secondArrowForQ1 = segment([20, -4, 12], [25, 4, 16]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstLineForQ2 = segment([-8, 10, 9], [-8, 19, 10]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstArrowForQ2 = segment([-8, 19, 10], [-3, 17, 9]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var secondArrowForQ2 = segment([-8, 19, 10], [-14, 12, 10]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var q3 = sphere([-2, -8, -2], 4).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var q4 = sphere([-8, 8, -1.5], 4).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+            var firstLineForQ3 = segment([-3, -8, -2], [-5, -2, -2]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstArrowForQ3 = segment([-5, -2, -2], [2, 0, 2]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var secondArrowForQ3 = segment([-5, -2, -2], [2, 0, -2]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstLineForQ4 = segment([-8, 8, -2], [-6, 2, -2]).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+            var firstArrowForQ4 = segment([-6, 2, -2], [-6.5, 4, -4]).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+            var secondArrowForQ4 = segment([-6, 2, -2], [-6.5, 4, 0]).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+        }
+
+        function createMol() {
+            new Suica();
+            oxyz();
+            var firstSphere = sphere([0, 0, 10], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var secondSphere = sphere([0, 0, 5], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var firstCyl = cylinder([0, 0, 5], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var thirdSphere = sphere([0, 10, 5], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var secondCyl = cylinder([0, 0, 5], 0.5, 10).custom({
+                color: [0.3, 0.32, 0.4],
+                focus: [0, 1, 0]
+            });
+            var forthSphere = sphere([0, -10, 5], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var thirdCyl = cylinder([0, -10, 5], 0.5, 10).custom({
+                color: [0.3, 0.32, 0.4],
+                focus: [0, 1, 0]
+            });
+            var fifthSphere = sphere([0, -10, 10], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var sixthSphere = sphere([0, -10, 0], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var forthCyl = cylinder([0, -10, 5], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var fifthCyl = cylinder([0, -10, 0], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var seventhSphere = sphere([0, 10, 10], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var eightSphere = sphere([0, 10, 0], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var sixthCyl = cylinder([0, 10, 5], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var seventhCyl = cylinder([0, 10, 0], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var ninthCyl = sphere([0, 0, 0], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var eightCyl = cylinder([0, 0, 0], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            //demo(60);
+        }
+
+        function createCat() {
+            new Suica();
+            var body = cylinder([0, 0, 0], 3, 7).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            var bottomPart = sphere([0, -0.5, 0], 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var topPart = sphere([0, 6.3, 0], 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var neck = cylinder([0, 6.3, 0], 1.5, 5).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var head = group([]);
+            var headBasicPart = sphere([0, 6.3, 5], 2.5).custom({
+                color: [1, 0.6, 0.18]
+            });
+            head.add(headBasicPart);
+            var ears = group([]);
+            var firstEar = cone([1, 5.5, 6], 1, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondEar = cone([-1, 5.5, 6], 1, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            ears.add(firstEar);
+            ears.add(secondEar);
+            head.add(ears);
+            var eyes = group([]);
+            var firstEye = sphere([1, 8.4, 6], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            eyes.add(firstEye);
+            var secondEye = sphere([-1, 8.4, 6], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            var nose = cone([0, 8.4, 5], 1, 1).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            var mustache = group([]);
+            var leftMustache = group([]);
+            var rightMustache = group([]);
+            var firstMustache = segment([0, 8.4, 5], [4, 9, 6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(firstMustache);
+            var secondMustache = segment([0, 8.4, 5], [4, 9, 5]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(secondMustache);
+            var thirdMustache = segment([0, 8.4, 5], [4, 9, 4]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(thirdMustache);
+            var forthMustache = segment([0, 8.4, 5], [-4, 9, 6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(forthMustache);
+            var fifthMustache = segment([0, 8.4, 5], [-4, 9, 5]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(fifthMustache);
+            var sixthMustache = segment([0, 8.4, 5], [-4, 9, 4]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(sixthMustache);
+            mustache.add(leftMustache);
+            mustache.add(rightMustache);
+            var legs = group([]);
+            var rightFront = group([]);
+            var rightFrontLeg = cylinder([1.5, 5, -5], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightFrontFoot = spheroid([1.5, 5.5, -5], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightFront.add(rightFrontLeg);
+            rightFront.add(rightFrontFoot);
+            legs.add(rightFront);
+            var leftFront = group([]);
+            var leftFrontLeg = cylinder([-1.5, 5, -5], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftFrontFoot = spheroid([-1.5, 5.5, -5], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftFront.add(leftFrontLeg);
+            leftFront.add(leftFrontFoot);
+            legs.add(leftFront);
+            var rightBack = group([]);
+            var rightBackLeg = cylinder([1.5, 0, -5], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightBackFoot = spheroid([1.5, 0.5, -5], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightBack.add(rightBackLeg);
+            rightBack.add(rightBackFoot);
+            legs.add(rightBack);
+            var leftBack = group([]);
+            var leftBackLeg = cylinder([-1.5, 0, -5], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftBackFoot = spheroid([-1.5, 0.5, -5], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftBack.add(leftBackLeg);
+            leftBack.add(leftBackFoot);
+            legs.add(leftBack);
+            var tail = group([]);
+            var firstTailPart = sphere([0, -2.7, 0], 1).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondTailPart = cylinder([0, -3.1, 0], 0.5, 6).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var thirdTailPart = sphere([0, -3.1, 6], 0.5).custom({
+                color: [1, 0.6, 0.18]
+            });
+            demo(40);
+        }
+
+        function createBowlWithFoodForCat() {
+            new Suica();
+            //oxyz();
+            var bowlFirstPart = sphere([0, 0, 0], 10).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, -5, 0]
+                ]
+            });
+            var bowlBottomPart = sphere([0, 0, -11], 5).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, 5, 0]
+                ]
+            });
+            food = group([]);
+            for (var i = 0; i < 100; i++) {
+                var style = {
+                    center: [random(-5, 5), random(-5, 5), random(-5, 3)],
+                    color: [random(0.90, 0.95), random(0.6, 0.7), random(0.45, 0.55)],
+                    focus: [random(-1, 1), random(-1, 1), random(-1, 1)]
+                }
+                if (random(-1, 1) > 0)
+                    food.add(cube([0, 0, 0], 2).custom(style));
+                else
+                    food.add(sphere([0, 0, 0], 1).custom(style));
+            }
+
+        }
+
+        function createSmallCat() {
+            new Suica();
+            //oxyz();
+            var body = cylinder([0, 0, 0], 2, 3).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            var bottomPart = sphere([0, -0.4, 0], 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var topPart = sphere([0, 3, 0], 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var neck = cylinder([0, 3, 0], 1, 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var head = group([]);
+            var headBasicPart = sphere([0, 3.2, 3.5], 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            head.add(headBasicPart);
+            var ears = group([]);
+            var firstEar = cone([0.8, 3.2, 4.4], 1, 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondEar = cone([-0.8, 3.2, 4.4], 1, 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            ears.add(firstEar);
+            ears.add(secondEar);
+            head.add(ears);
+            var eyes = group([]);
+            var firstEye = sphere([0.8, 4.6, 4.3], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            eyes.add(firstEye);
+            var secondEye = sphere([-0.8, 4.6, 4.3], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            var nose = cone([0, 5, 3.5], 0.6, 0.8).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            var mustache = group([]);
+            var leftMustache = group([]);
+            var rightMustache = group([]);
+            var firstMustache = segment([0, 5, 3.6], [4, 5, 4.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(firstMustache);
+            var secondMustache = segment([0, 5, 3.6], [4, 5, 3.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(secondMustache);
+            var thirdMustache = segment([0, 5, 3.6], [4, 5, 2.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(thirdMustache);
+            var forthMustache = segment([0, 5, 3.6], [-4, 5, 4.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(forthMustache);
+            var fifthMustache = segment([0, 5, 3.6], [-4, 5, 3.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(fifthMustache);
+            var sixthMustache = segment([0, 5, 3.6], [-4, 5, 2.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(sixthMustache);
+            mustache.add(leftMustache);
+            mustache.add(rightMustache);
+            var legs = group([]);
+            var rightFront = group([]);
+            var rightFrontLeg = cylinder([1, 3, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightFrontFoot = spheroid([1, 3.4, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightFront.add(rightFrontLeg);
+            rightFront.add(rightFrontFoot);
+            legs.add(rightFront);
+            var leftFront = group([]);
+            var leftFrontLeg = cylinder([-1, 3, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftFrontFoot = spheroid([-1, 3.4, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftFront.add(leftFrontLeg);
+            leftFront.add(leftFrontFoot);
+            legs.add(leftFront);
+            var rightBack = group([]);
+            var rightBackLeg = cylinder([1, 0, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightBackFoot = spheroid([1, 0.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightBack.add(rightBackLeg);
+            rightBack.add(rightBackFoot);
+            legs.add(rightBack);
+            var leftBack = group([]);
+            var leftBackLeg = cylinder([-1, 0, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftBackFoot = spheroid([-1, 0.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftBack.add(leftBackLeg);
+            leftBack.add(leftBackFoot);
+            legs.add(leftBack);
+            var tail = group([]);
+            var firstTailPart = sphere([0, -1.6, 0], 1).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondTailPart = cylinder([0, -1.8, 0], 0.5, 4).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var thirdTailPart = sphere([0, -1.8, 4], 0.5).custom({
+                color: [1, 0.6, 0.18]
+            });
+            demo(40);
+        }
+
+        function main() {}
+    </script>
+</head>
+
+<body onload="createSmallCat()">
+    <span id="n1" style="position:fixed; padding: 0.25em;"></span>
+    <canvas id="1" width="300" height="150" style="border: solid 1px black;"></canvas>
+</body>

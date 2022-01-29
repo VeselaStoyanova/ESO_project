@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Мерни единици</title>
+    <script src="suica.min.js"></script>
+    <script>
+        function createRuler() {
+            //new Suica();
+            lookAt([20, 60, 0], [1, 1, 1], [0, 1, 1]);
+
+            cuboid([0, 0, 2.5], [40, 0.7, 4]).custom({
+                color: [1, 0.5, 1]
+            });
+            spheroid([19.8, 0, 2.5], [1, 0.5, 2]).custom({
+                color: [1, 0.5, 1]
+            });
+            spheroid([-19.8, 0, 2.5], [1, 0.5, 2]).custom({
+                color: [1, 0.5, 1]
+            });
+            cuboid([18, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+
+            cuboid([17.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+
+            cuboid([16.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([16, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([15.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([14.6, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([13.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([13.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([12.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([12, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([11.2, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([10.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([9.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([9.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([8.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([7.8, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([7, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([6.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([5.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([5.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([4.4, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([3.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([3, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([2.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([1.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([1, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([0.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-0.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-1, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-1.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-2.4, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-3.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-3.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-4.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-5, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-5.8, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-6.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-7.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-7.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-8.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-9.2, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-10, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-10.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-11.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-11.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-12.6, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-13.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-14, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-14.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-15.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-16, 0.5, 3], [0.5, 0.5, 3]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-16.8, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+            cuboid([-17.4, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
+                color: [0, 0, 0]
+            });
+        }
+
+        function createWeighingMachine() {
+            //new Suica();
+            lookAt([20, 40, 35], [1, 5, 5], [-1, 1, 5]);
+            cuboid([0, 0, 2.5], [20, 20, 4]).custom({
+                color: [0.6, 0.6, 0.6]
+            });
+            circle([-5, 0.5, 5], 4).custom({
+                color: [1, 1, 1]
+            });
+
+            segment([-9, 0.5, 5], [-6, 0.5, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-9, 2, 5], [-7.5, 1.7, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-8, 3.2, 5], [-7, 2.7, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-6.8, 4.2, 5], [-6, 3.5, 5]).custom({
+                color: [0, 0, 0]
+            });
+
+            segment([-9, -1, 5], [-7.5, -0.5, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-8, -2, 5], [-7, -1.1, 5]).custom({
+                color: [0, 0, 0]
+            });
+            segment([-7, -3, 5], [-6.4, -2, 5]).custom({
+                color: [0, 0, 0]
+            });
+        }
+
+        function createClock() {
+            //p = new Suica();
+            lookAt([60, 0, 100], [0, 0, 0], [0, 0, 1]);
+
+            clock = group([]);
+            base = cylindroid([0, 0, 0], [24, 24], 2);
+
+            point([0, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            strelka = segment([0, 0, 2.2], [-16, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var strelka2 = segment([0, 0, 2.2], [4, 7, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var dvanadesetChasa = segment([-24, 0, 2.2], [-18.5, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var triChasa = segment([0, 24, 2.2], [0, 18.5, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var shestChasa = segment([24, 0, 2.2], [18.5, 0, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+            var devetChasa = segment([0, -24, 2.2], [0, -18.5, 2.2]).custom({
+                color: [0, 0, 0]
+            });
+
+        }
+
+        function createThermometer() {
+            //new Suica();
+
+            cyl = cylinder([7, 3, 0], 2, 13).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            topPart = sphere([7, 3, 12.9], 2).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            bottomPart = sphere([7, 3, 0], 4).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            blueBottomPart = sphere([10.5, 5, 1.3], 3).custom({
+                color: [0.01, 0.7, 0.95]
+            });
+            blueCyl = cylinder([10.5, 5, 1.5], 1.3, 6).custom({
+                color: [0.01, 0.7, 0.95]
+            });
+            blueTopPart = sphere([10.5, 5, 6.9], 1.3).custom({
+                color: [0.01, 0.7, 0.95]
+            });
+
+            cyl1 = cylinder([-3, 8, -1.9], 2, 13.6).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            topPart1 = sphere([-3, 8, 12], 2).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            bottomPart1 = sphere([-3, 8, -2.2], 4).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            greenCyl = cylinder([0, 9.5, 1.5], 1.3, 7.5).custom({
+                color: [0.6, 0.9, 0.01]
+            });
+            greenTopPart = sphere([0, 9.5, 9], 1.3).custom({
+                color: [0.6, 0.9, 0.01]
+            });
+            greenBottomPart = sphere([0, 9.5, -0.7], 3).custom({
+                color: [0.6, 0.9, 0.01]
+            });
+            cyl2 = cylinder([-15, 13, -2.5], 2, 13.6).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            topPart2 = sphere([-15, 13, 11], 2).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            bottomPart2 = sphere([-15, 13, -5], 4).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            redCyl = cylinder([-12, 14.2, -1.5], 1.3, 13.5).custom({
+                color: [1, 0.3, 0.3]
+            });
+            redTopPart = sphere([-12, 14.2, 11.8], 1.3).custom({
+                color: [1, 0.3, 0.3]
+            });
+            redBottomPart = sphere([-12, 14.2, -4], 3).custom({
+                color: [1, 0.3, 0.3]
+            });
+        }
+
+        function createLight() {
+            //new Suica();
+            light = group([]);
+            bottomLightPart = cylinder([0, 0, -10], 3, 5).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            secondBottomPart = sphere([0, 0, -10], 3).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            secondBottomLightPart = cylinder([0, 0, -4], 5, 6).custom({
+                color: [1, 0.8, 0.1]
+            });
+            topLightPart = sphere([0, 0, 6], 8).custom({
+                color: [1, 0.8, 0.1]
+            });
+            light.add(bottomLightPart);
+            light.add(secondBottomLightPart);
+            light.add(secondBottomPart);
+            light.add(topLightPart);
+
+            first = segment([0, 3, 17], [-4, 3, 23]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            second = segment([-3, 7, 15], [-9, 10, 21]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            third = segment([10, 3, 18], [14, 3, 24]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            forth = segment([15, 1, 16], [27, 5, 22]).custom({
+                color: [1, 0.8, 0.1]
+            });
+            light.add(first);
+            light.add(second);
+            light.add(third);
+            light.add(forth);
+        };
+
+        function createAmper() {
+            //new Suica();
+            //oxyz();
+            var q1 = sphere([-2, -8, 8], 4).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var q2 = sphere([-8, 8, 8.5], 4).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstLineForQ1 = segment([8, -4, 10], [20, -4, 12]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstArrowForQ1 = segment([20, -4, 12], [15, -4, 9]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var secondArrowForQ1 = segment([20, -4, 12], [25, 4, 16]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstLineForQ2 = segment([-8, 10, 9], [-8, 19, 10]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstArrowForQ2 = segment([-8, 19, 10], [-3, 17, 9]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var secondArrowForQ2 = segment([-8, 19, 10], [-14, 12, 10]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var q3 = sphere([-2, -8, -2], 4).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var q4 = sphere([-8, 8, -1.5], 4).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+            var firstLineForQ3 = segment([-3, -8, -2], [-5, -2, -2]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstArrowForQ3 = segment([-5, -2, -2], [2, 0, 2]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var secondArrowForQ3 = segment([-5, -2, -2], [2, 0, -2]).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+            var firstLineForQ4 = segment([-8, 8, -2], [-6, 2, -2]).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+            var firstArrowForQ4 = segment([-6, 2, -2], [-6.5, 4, -4]).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+            var secondArrowForQ4 = segment([-6, 2, -2], [-6.5, 4, 0]).custom({
+                color: [0.8, 0.25, 0.25]
+            });
+        }
+
+        function createMol() {
+            //new Suica();
+            //oxyz();
+            var firstSphere = sphere([0, 0, 10], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var secondSphere = sphere([0, 0, 5], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var firstCyl = cylinder([0, 0, 5], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var thirdSphere = sphere([0, 10, 5], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var secondCyl = cylinder([0, 0, 5], 0.5, 10).custom({
+                color: [0.3, 0.32, 0.4],
+                focus: [0, 1, 0]
+            });
+            var forthSphere = sphere([0, -10, 5], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var thirdCyl = cylinder([0, -10, 5], 0.5, 10).custom({
+                color: [0.3, 0.32, 0.4],
+                focus: [0, 1, 0]
+            });
+            var fifthSphere = sphere([0, -10, 10], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var sixthSphere = sphere([0, -10, 0], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var forthCyl = cylinder([0, -10, 5], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var fifthCyl = cylinder([0, -10, 0], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var seventhSphere = sphere([0, 10, 10], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var eightSphere = sphere([0, 10, 0], 2).custom({
+                color: [0.85, 0.2, 0.5]
+            });
+            var sixthCyl = cylinder([0, 10, 5], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var seventhCyl = cylinder([0, 10, 0], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            var ninthCyl = sphere([0, 0, 0], 2).custom({
+                color: [0.5, 0.7, 0.85]
+            });
+            var eightCyl = cylinder([0, 0, 0], 0.5, 5).custom({
+                color: [0.3, 0.32, 0.4]
+            });
+            //demo(60);
+        }
+
+        function main() {
+            firstRow = new Suica('ruller');
+            ruller = createRuler();
+
+            secondRow = new Suica('weighingMachine');
+            weighingMachine = createWeighingMachine();
+
+            thirdRow = new Suica('clock');
+            clock = createClock();
+
+            forthRow = new Suica('amper');
+            amper = createAmper();
+
+            fifthRow = new Suica('thermometer');
+            thermometer = createThermometer();
+
+            sixthRow = new Suica('mol');
+            mol = createMol();
+
+            seventhRow = new Suica('light');
+            light = createLight();
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body onload="main()">
+    <h1>Мерни единици</h1>
+    <h4>Интерактивен урок | Весела Стоянова</h4>
+    <section id="basicMeasurementUnits">
+        <h2>
+            1. Основна информация
+        </h2>
+        <h3>
+            1.1. Основни мерни единици
+        </h3>
+        <p>
+            Международната система единици SI е най-често използваната система за мерни единици. Тя се използва в науката, стопанството и техниката. Тя е изградена от 7+2 основни независими единици. Всички останали мерни единици могат да бъдат получени чрез набор
+            от стандартни представки, които се явяват като десетични множители или чрез произведението/частното на две единици от нея. Тези мерни единици се наричат производни.
+        </p>
+        <table border="1">
+            <th>Име</th>
+            <th>Означение</th>
+            <th>Физична величина</th>
+            <th>Изображение</th>>
+            <tr>
+                <td>Метър</td>
+                <td>m</td>
+                <td>Дължина</td>
+                <td width="150"><canvas id="ruller" width="170" height="100"> </td>
+            </tr>
+            <tr>
+                <td>Килограм</td>
+                <td>kg</td>
+                <td>Маса</td>
+                <td width="150"><canvas id="weighingMachine" width="170" height="100"></td>
+            </tr>
+            <tr>
+                <td>Секунда</td>
+                <td>s</td>
+                <td>Време</td>
+                <td width="150"><canvas id="clock" width="170" height="100"></td>
+            </tr>
+            <tr>
+                <td>Ампер</td>
+                <td>A</td>
+                <td>Електрически ток</td>
+                <td width="150"><canvas id="amper" width="170" height="100"></td>
+            </tr>
+            <tr>
+                <td>Келвин</td>
+                <td>K</td>
+                <td>Термодинамична температура</td>
+                <td width="150"><canvas id="thermometer" width="170" height="100"></td>
+            </tr>
+            <tr>
+                <td>Мол</td>
+                <td>mol</td>
+                <td>Количество вещество</td>
+                <td width="150"><canvas id="mol" width="170" height="100"></td>
+            </tr>
+            <tr>
+                <td>Кандела</td>
+                <td>cd</td>
+                <td>Интензитет на светлината</td>
+                <td width="150"><canvas id="light" width="170" height="100"></td>
+            </tr>
+        </table>
+    </section>
+    <section id="additionalMeasurementUnits">
+        <h3>
+            1.2. Допълнителни единици
+        </h3>
+        <p>
+            Единиците за ъгъл радиан и стерадиан се смятат за специален клас допълнителни единици.
+        </p>
+        <table border="1">
+            <th>Име</th>
+            <th>Означение</th>
+            <th>Физична величина</th>
+            <tr>
+                <td>Радиан</td>
+                <td>rad</td>
+                <td>Равнинен ъгъл</td>
+            </tr>
+            <tr>
+                <td>Стерадиан</td>
+                <td>sr</td>
+                <td>Пространствен ъгъл</td>
+            </tr>
+        </table>
+    </section>
+    <section id="derivateMeasurementUnits">
+        <h3>1.3. Производни единици</h3>
+        <!-- Линк към друга html страница, в която описваме производните единици изразени чрез основните -->
+        <!-- Тоест от уикипедия таблицата с честота, сила, енергия и тн -->
+    </section>
+    <section id="measurmentUnitsConversion">
+        <h2>2. Преобразуване на мерни единици</h2>
+        <p>
+            В практиката е често необходимо използването на твърде голяма или твърде малка стойност на някоя от основните мерни единици. По тази причина е приета система с представки, които се явяват като десетични множители.
+        </p>
+        <table border="1">
+            <th rowspan="3">По-големи от основната SI единица</th>
+            <th>Име</th>
+            <th></th>
+            <th>дека-</th>
+            <th>хекто-</th>
+            <th>кило-</th>
+            <th>мега-</th>
+            <th>гига-</th>
+            <th>тера-</th>
+            <th>пета-</th>
+            <th>екса-</th>
+            <th>сета-</th>
+            <th>йота-</th>
+            <tr>
+                <td>Означение</td>
+                <td></td>
+                <td>da</td>
+                <td>h</td>
+                <td>k</td>
+                <td>M</td>
+                <td>G</td>
+                <td>T</td>
+                <td>P</td>
+                <td>E</td>
+                <td>Z</td>
+                <td>Y</td>
+            </tr>
+            <tr>
+                <td>Стойност</td>
+                <td>10<sup>0</sup></td>
+                <td>10<sup>1</sup></td>
+                <td>10<sup>2</sup></td>
+                <td>10<sup>3</sup></td>
+                <td>10<sup>6</sup></td>
+                <td>10<sup>9</sup></td>
+                <td>10<sup>12</sup></td>
+                <td>10<sup>15</sup></td>
+                <td>10<sup>18</sup></td>
+                <td>10<sup>21</sup></td>
+                <td>10<sup>24</sup></td>
+            </tr>
+        </table>
+        <table border="1">
+            <th rowspan="3">По-малки от основната SI единица</th>
+            <th>Име</th>
+            <th></th>
+            <th>деци-</th>
+            <th>санти-</th>
+            <th>мили-</th>
+            <th>микро-</th>
+            <th>нано-</th>
+            <th>пико-</th>
+            <th>фемто-</th>
+            <th>ато-</th>
+            <th>септо-</th>
+            <th>йокто-</th>
+            <tr>
+                <td>Означение</td>
+                <td></td>
+                <td>d</td>
+                <td>c</td>
+                <td>m</td>
+                <td>µ</td>
+                <td>n</td>
+                <td>p</td>
+                <td>f</td>
+                <td>a</td>
+                <td>z</td>
+                <td>y</td>
+            </tr>
+            <tr>
+                <td>Стойност</td>
+                <td>10<sup>0</sup></td>
+                <td>10<sup>-1</sup></td>
+                <td>10<sup>-2</sup></td>
+                <td>10<sup>-3</sup></td>
+                <td>10<sup>-6</sup></td>
+                <td>10<sup>-9</sup></td>
+                <td>10<sup>-12</sup></td>
+                <td>10<sup>-15</sup></td>
+                <td>10<sup>-18</sup></td>
+                <td>10<sup>-21</sup></td>
+                <td>10<sup>-24</sup></td>
+            </tr>
+        </table>
+    </section>
+</body>
+
+</html>

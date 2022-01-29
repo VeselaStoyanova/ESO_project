@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="suica.min.js"></script>
+    <script>
+        function main() {
+            p = new Suica();
+            //oxyz();
+            lookAt([70, -3, 6], [-3, 0, 0], [0, 0, 1]);
+            //Създаваме земята от 3х20 кубчета
+            //Централното кубче е в (0,0,-1)
+            for (var x = -1; x <= 1; x++) {
+                for (var y = -60; y <= 60; y++) {
+                    cube([x, y, -5.5], 2).custom({
+                        color: [1, 0.8, 0.5]
+                    });
+                }
+            }
+            //demo(50);
+            var body = cylinder([0, -40, 0], 2, 3).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            var bottomPart = sphere([0, -40.4, 0], 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var topPart = sphere([0, -37, 0], 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var neck = cylinder([0, -37, 0], 1, 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            head = group([]);
+            var headBasicPart = sphere([0, -36.8, 3.5], 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            head.add(headBasicPart);
+            var ears = group([]);
+            var firstEar = cone([0.8, -36.8, 4.4], 1, 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondEar = cone([-0.8, -36.8, 4.4], 1, 2).custom({
+                color: [1, 0.6, 0.18]
+            });
+            ears.add(firstEar);
+            ears.add(secondEar);
+            head.add(ears);
+            var eyes = group([]);
+            var firstEye = sphere([0.8, -35.4, 4.3], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            eyes.add(firstEye);
+            var secondEye = sphere([-0.8, -35.4, 4.3], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            eyes.add(secondEye);
+            var nose = cone([0, -35, 3.5], 0.6, 0.8).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            head.add(eyes);
+            head.add(nose);
+            var mustache = group([]);
+            var leftMustache = group([]);
+            var rightMustache = group([]);
+            var firstMustache = segment([0, -35, 3.6], [4, -35, 4.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(firstMustache);
+            var secondMustache = segment([0, -35, 3.6], [4, -35, 3.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(secondMustache);
+            var thirdMustache = segment([0, -35, 3.6], [4, -35, 2.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(thirdMustache);
+            var forthMustache = segment([0, -35, 3.6], [-4, -35, 4.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(forthMustache);
+            var fifthMustache = segment([0, -35, 3.6], [-4, -35, 3.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(fifthMustache);
+            var sixthMustache = segment([0, -35, 3.6], [-4, -35, 2.6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(sixthMustache);
+            mustache.add(leftMustache);
+            mustache.add(rightMustache);
+            head.add(mustache);
+            var rightFront = group([]);
+            var rightFrontLeg = cylinder([1, -37, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightFrontFoot = spheroid([1, -36.6, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightFront.add(rightFrontLeg);
+            rightFront.add(rightFrontFoot);
+            var leftFront = group([]);
+            var leftFrontLeg = cylinder([-1, -37, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftFrontFoot = spheroid([-1, -36.6, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftFront.add(leftFrontLeg);
+            leftFront.add(leftFrontFoot);
+            var rightBack = group([]);
+            var rightBackLeg = cylinder([1, -40, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightBackFoot = spheroid([1, -39.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightBack.add(rightBackLeg);
+            rightBack.add(rightBackFoot);
+            var leftBack = group([]);
+            var leftBackLeg = cylinder([-1, -40, -4], 0.5, 2.7).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftBackFoot = spheroid([-1, -39.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftBack.add(leftBackLeg);
+            leftBack.add(leftBackFoot);
+            var tail = group([]);
+            var firstTailPart = sphere([0, -41.6, 0], 1).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondTailPart = cylinder([0, -41.8, 0], 0.5, 4).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var thirdTailPart = sphere([0, -41.8, 4], 0.5).custom({
+                color: [1, 0.6, 0.18]
+            });
+            tail.add(firstTailPart);
+            tail.add(secondTailPart);
+            tail.add(thirdTailPart);
+            bodyWithoutLegs = group([]);
+            bodyWithoutLegs.add(body);
+            bodyWithoutLegs.add(bottomPart);
+            bodyWithoutLegs.add(topPart);
+            bodyWithoutLegs.add(neck);
+            bodyWithoutLegs.add(head);
+            bodyWithoutLegs.add(tail);
+            rightLegs = group([]);
+            rightLegs.add(rightFront);
+            rightLegs.add(rightBack);
+            leftLegs = group([]);
+            leftLegs.add(leftFront);
+            leftLegs.add(leftBack);
+            cat = group([]);
+            cat.add(bodyWithoutLegs);
+            cat.add(rightLegs);
+            cat.add(leftLegs);
+            firstBowlFirstPart = sphere([0, -25, -1], 3).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, -5, 0]
+                ]
+            });
+            var firstBowlBottomPart = sphere([0, -25, -5], 1.5).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, 5, 0]
+                ]
+            });
+            firstFood = group([]);
+            for (var i = 0; i < 100; i++) {
+                var style = {
+                    center: [random(-1.8, 1.8), random(-27, -23), random(-1.5, -0.5)],
+                    color: [random(0.90, 0.95), random(0.6, 0.7), random(0.45, 0.55)],
+                    focus: [random(-1, 1), random(-1, 1), random(-1, 1)]
+                }
+                if (random(-1, 1) > 0)
+                    firstFood.add(cube([0, 0, 0], 0.5).custom(style));
+                else
+                    firstFood.add(sphere([0, 0, 0], 0.5).custom(style));
+            }
+
+            secondBowlFirstPart = sphere([0, -10, -1], 3).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, -5, 0]
+                ]
+            });
+            var secondBowlBottomPart = sphere([0, -10, -5], 1.5).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, 5, 0]
+                ]
+            });
+            var secondFood = group([]);
+            for (var i = 0; i < 100; i++) {
+                var style = {
+                    center: [random(-1.8, 1.8), random(-11.9, -8.5), random(-1.5, -0.5)],
+                    color: [random(0.90, 0.95), random(0.6, 0.7), random(0.45, 0.55)],
+                    focus: [random(-1, 1), random(-1, 1), random(-1, 1)]
+                }
+                if (random(-1, 1) > 0)
+                    secondFood.add(cube([0, 0, 0], 0.5).custom(style));
+                else
+                    secondFood.add(sphere([0, 0, 0], 0.5).custom(style));
+            }
+            thirdBowlFirstPart = sphere([0, 5, -1], 3).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, -5, 0]
+                ]
+            });
+            var thirdBowlBottomPart = sphere([0, 5, -5], 1.5).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, 5, 0]
+                ]
+            });
+            var thirdFood = group([]);
+            for (var i = 0; i < 100; i++) {
+                var style = {
+                    center: [random(-1.8, 1.8), random(3.2, 6.8), random(-1.5, -0.5)],
+                    color: [random(0.90, 0.95), random(0.6, 0.7), random(0.45, 0.55)],
+                    focus: [random(-1, 1), random(-1, 1), random(-1, 1)]
+                }
+                if (random(-1, 1) > 0)
+                    thirdFood.add(cube([0, 0, 0], 0.5).custom(style));
+                else
+                    thirdFood.add(sphere([0, 0, 0], 0.5).custom(style));
+            }
+            forthBowlFirstPart = sphere([0, 20, -1], 3).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, -5, 0]
+                ]
+            });
+            var forthBowlBottomPart = sphere([0, 20, -5], 1.5).custom({
+                color: [0.85, 0.2, 0.5],
+                clipPlanes: [
+                    [0, 0, 5, 0]
+                ]
+            });
+            var forthFood = group([]);
+            for (var i = 0; i < 100; i++) {
+                var style = {
+                    center: [random(-1.8, 1.8), random(18.2, 21.8), random(-1.5, -0.5)],
+                    color: [random(0.90, 0.95), random(0.6, 0.7), random(0.45, 0.55)],
+                    focus: [random(-1, 1), random(-1, 1), random(-1, 1)]
+                }
+                if (random(-1, 1) > 0)
+                    thirdFood.add(cube([0, 0, 0], 0.5).custom(style));
+                else
+                    thirdFood.add(sphere([0, 0, 0], 0.5).custom(style));
+            }
+
+            var body = cylinder([0, 32.5, 0], 3, 6).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            var bottomPart = sphere([0, 32, 0], 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var topPart = sphere([0, 38.3, 0], 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var neck = cylinder([0, 38.3, -0.4], 1.5, 4).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var head = group([]);
+            var headBasicPart = sphere([0, 38.3, 5], 2.5).custom({
+                color: [1, 0.6, 0.18]
+            });
+            head.add(headBasicPart);
+            var ears = group([]);
+            var firstEar = cone([1, 38.5, 6], 1, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondEar = cone([-1, 38.5, 6], 1, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            ears.add(firstEar);
+            ears.add(secondEar);
+            head.add(ears);
+            var eyes = group([]);
+            var firstEye = sphere([1, 40.4, 6], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            eyes.add(firstEye);
+            var secondEye = sphere([-1, 40.4, 6], 0.4).custom({
+                color: [0, 0, 0]
+            });
+            var nose = cone([0, 40.4, 5], 1, 1).custom({
+                color: [1, 0.6, 0.18],
+                focus: [0, 1, 0]
+            });
+            var mustache = group([]);
+            var leftMustache = group([]);
+            var rightMustache = group([]);
+            var firstMustache = segment([0, 40.4, 5], [4, 41, 6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(firstMustache);
+            var secondMustache = segment([0, 40.4, 5], [4, 41, 5]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(secondMustache);
+            var thirdMustache = segment([0, 40.4, 5], [4, 41, 4]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            rightMustache.add(thirdMustache);
+            var forthMustache = segment([0, 40.4, 5], [-4, 41, 6]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(forthMustache);
+            var fifthMustache = segment([0, 40.4, 5], [-4, 41, 5]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(fifthMustache);
+            var sixthMustache = segment([0, 40.4, 5], [-4, 41, 4]).custom({
+                color: [0.25, 0.05, 0.15]
+            });
+            leftMustache.add(sixthMustache);
+            mustache.add(leftMustache);
+            mustache.add(rightMustache);
+            var legs = group([]);
+            var rightFront = group([]);
+            var rightFrontLeg = cylinder([1.5, 38, -4], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightFrontFoot = spheroid([1.5, 38.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightFront.add(rightFrontLeg);
+            rightFront.add(rightFrontFoot);
+            legs.add(rightFront);
+            var leftFront = group([]);
+            var leftFrontLeg = cylinder([-1.5, 38, -4], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftFrontFoot = spheroid([-1.5, 38.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftFront.add(leftFrontLeg);
+            leftFront.add(leftFrontFoot);
+            legs.add(leftFront);
+            var rightBack = group([]);
+            var rightBackLeg = cylinder([1.5, 33, -4], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var rightBackFoot = spheroid([1.5, 33.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            rightBack.add(rightBackLeg);
+            rightBack.add(rightBackFoot);
+            legs.add(rightBack);
+            var leftBack = group([]);
+            var leftBackLeg = cylinder([-1.5, 33, -4], 0.5, 3).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var leftBackFoot = spheroid([-1.5, 33.5, -4], [0.8, 1, 0.2]).custom({
+                color: [1, 0.6, 0.18]
+            });
+            leftBack.add(leftBackLeg);
+            leftBack.add(leftBackFoot);
+            legs.add(leftBack);
+            var tail = group([]);
+            var firstTailPart = sphere([0, 29.8, 0], 1).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var secondTailPart = cylinder([0, 29.5, 0], 0.5, 6).custom({
+                color: [1, 0.6, 0.18]
+            });
+            var thirdTailPart = sphere([0, 29.5, 6], 0.5).custom({
+                color: [1, 0.6, 0.18]
+            });
+            //demo(80);
+
+
+            //p.nextFrame = move;
+        }
+
+        // function move() {
+        //     while (cat.center[1] <= 6) {
+        //         cat.center[1]++;
+        //     }
+        //     //cat.center[1]++;
+        //     // while (cat.center[1] > 6) {
+        //     //     head.center[1]++;
+        //     //     head.center[2]--;
+        //     // }
+        // }
+    </script>
+</head>
+
+<body onload="main()">
+    <span id="n1" style="position:fixed; padding: 0.25em;"></span>
+    <canvas id="1" width="1200" height="500" style="border: solid 1px black;"></canvas>
+    <p id="task">
+        Котенце, тежащо 3 килограма изминава 10 метра за 20 секунди. То преминава от една купичка с храна на друга. Знаем, че между купичките има 20 метра и знаем, че изяжда една купичка за 150 секунди. Също така знаем, че преди първата купичка има 15 метра.
+        Ако котето е минало през 4 купички с храна, то колко метра е изминало, колко време ще му е необходимо, за да стигне от началото до края и колко ще тежи накрая, ако знаем, че във всяка купичка има 130 грама храна?
+    </p>
+    <p id="firstQuestion">Колко метра е изминало котето?</p>
+    <label>
+    <input type="radio" name="time" id="60">60
+    </label>
+    <label>
+    <input type="radio" name="time" id="70">70
+    </label>
+    <label>
+    <input type="radio" name="time" id="65">65
+    </label>
+    <label>
+    <input type="radio" name="time" id="75">75
+    </label>
+    <label><input type="radio" name="time" id="80">80
+    </label>
+    <p id="secondQuestion">Колко време (в минути) ще е необходимо на котето, за да стигне от началото до края?</p>
+    <p class="answ">Отговор:</p>
+    <input type="text" id="secondQuestionAnswer">
+    <!--12 минути и 30 секунди-->
+    <p id="thirdQuestion">Колко ще тежи котето накрая (в грамове)?</p>
+    <p class="answ">Отговор:</p>
+    <input type="text" id="secondQuestionAnswer">
+    <!--3520 грама-->
+</body>
