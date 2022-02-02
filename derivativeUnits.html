@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Мерни единици</title>
+    <script src="suica.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        #buttonBack:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            background-color: #A2F2F1;
+        }
+        
+        button {
+            background-color: rgb(74, 213, 231);
+            border-radius: 6px;
+            height: 40px;
+            border: rgb(30, 127, 139) solid 4px;
+            font-weight: bold;
+            font-family: Georgia, serif;
+            margin-top: 2em;
+            margin-left: 40em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Производни мерни единици</h1>
+    <section id="derivateUnitsTable">
+        <table border="1">
+            <th>Име</th>
+            <th>Означение</th>
+            <th>Физична величина</th>
+            <th>Изразяване чрез основните мерни единици</th>
+            <tr>
+                <td style="font-weight: bold;">Херц</td>
+                <td style="font-weight: bold;">Hz</td>
+                <td>Честота</td>
+                <td>s<sup>-1</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Нютон</td>
+                <td style="font-weight: bold;">N</td>
+                <td>Сила</td>
+                <td>kg*m/s<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Джаул</td>
+                <td style="font-weight: bold;">J</td>
+                <td>Енергия</td>
+                <td>N*m = kg*m<sup>2</sup>/s<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Ват</td>
+                <td style="font-weight: bold;">W</td>
+                <td>Мощност</td>
+                <td>J/s = kg*m<sup>2</sup>/s<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Паскал</td>
+                <td style="font-weight: bold;">Pa</td>
+                <td>Налягане</td>
+                <td>N/m<sup>2</sup> = kg/(m*s<sup>2</sup>)</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Лумен</td>
+                <td style="font-weight: bold;">lm</td>
+                <td>Светлинен поток</td>
+                <td>cd*sr</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Лукс</td>
+                <td style="font-weight: bold;">lx</td>
+                <td>Осветеност</td>
+                <td>cd*sr/m<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Кулон</td>
+                <td style="font-weight: bold;">C</td>
+                <td>Електрически заряд</td>
+                <td>А*s</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Волт</td>
+                <td style="font-weight: bold;">V</td>
+                <td>Електрически потенциал</td>
+                <td>J/C = kg*m<sup>2</sup>/A*s<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Ом</td>
+                <td style="font-weight: bold;">Ω</td>
+                <td>Електрическо съпротивление</td>
+                <td>V/A = kg*m<sup>2</sup>/s<sup>3</sup>*A<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Хенри</td>
+                <td style="font-weight: bold;">H</td>
+                <td>Индуктивност</td>
+                <td>kg*m<sup>2</sup>/s<sup>2</sup>*A<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Сименс</td>
+                <td style="font-weight: bold;">S</td>
+                <td>Електрическа проводимост</td>
+                <td>Ω<sup>-1</sup> = kg<sup>-1</sup>*m<sup>-2</sup>*s<sup>3</sup>*A<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Фарад</td>
+                <td style="font-weight: bold;">F</td>
+                <td>Електрически капацитет</td>
+                <td>A<sup>2</sup>*s<sup>4</sup>/kg*m<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Вебер</td>
+                <td style="font-weight: bold;">Wb</td>
+                <td>Магнитен поток</td>
+                <td>kg*m<sup>2</sup>/s<sup>2</sup>*A</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Бекерел</td>
+                <td style="font-weight: bold;">Bq</td>
+                <td>Активност на радиоактивен източник</td>
+                <td>s<sup>-1</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Тесла</td>
+                <td style="font-weight: bold;">T</td>
+                <td>Магнитна индукция</td>
+                <td>Wb/m<sup>2</sup> = kg/s<sup>2</sup>*A</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Грей</td>
+                <td style="font-weight: bold;">Gy</td>
+                <td>Погълната доза от йонизираща радиация</td>
+                <td>J/kg = m<sup>2</sup>/s<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Сиверт</td>
+                <td style="font-weight: bold;">Sv</td>
+                <td>Еквивалентна доза от йонизираща радиация</td>
+                <td>J/kg = m<sup>2</sup>/s<sup>2</sup></td>
+            </tr>
+        </table>
+    </section>
+
+    <button type="button" id="buttonBack"><a href="index.html">Назад</button>
+</body>

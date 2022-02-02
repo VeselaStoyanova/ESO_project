@@ -1,0 +1,67 @@
+    body {
+        max-width: 1500px;
+        height: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        background: linear-gradient(-100deg, #43b6da 0%, #A2F2F1 60%);
+        padding: 0px 20px 5px 20px;
+        margin-top: 10px;
+        border: double 8px rgb(30, 127, 139);
+        border-radius: 13px;
+        font-family: Georgia, serif;
+    }
+    
+    canvas {
+        margin-top: 50px;
+        margin-left: 250px;
+    }
+    
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        max-width: 150px;
+        gap: 30px;
+        margin-top: -700px;
+        margin-left: 30px;
+    }
+    
+    button {
+        background-color: rgb(74, 213, 231);
+        border-radius: 6px;
+        height: 28px;
+        border: rgb(30, 127, 139) solid 4px;
+        font-weight: bold;
+        font-family: Georgia, serif;
+    }
+    
+    #seeValue {
+        position: relative;
+        top: -2em;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(30, 127, 139);
+    }
+    
+    #buttonBack {
+        position: static;
+        top: 51em;
+        background-color: rgb(74, 213, 231);
+        border-radius: 6px;
+        height: 28px;
+        border: rgb(30, 127, 139) solid 4px;
+        font-weight: bold;
+        width: 150px;
+        font-family: Georgia, serif;
+        color: black;
+    }
+    
+    #buttonBack:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        background-color: #A2F2F1;
+    }
+    
+    button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        background-color: #A2F2F1;
+    }

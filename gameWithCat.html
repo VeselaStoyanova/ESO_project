@@ -3,39 +3,100 @@
 <head>
     <meta charset="utf-8">
     <script src="suica.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        canvas {
+            margin-top: 20px;
+        }
+        
+        #radioAnswers {
+            display: flex;
+            flex-direction: column;
+            margin-left: -100px;
+        }
+        
+        input {
+            border-radius: 6px;
+            border-bottom: 2px solid rgb(68, 148, 158);
+            background-color: #A2F2F1;
+            margin-left: 450px;
+            width: 300px;
+            text-align: center;
+        }
+        
+        .answ {
+            font-weight: bold;
+        }
+        
+        button {
+            background-color: rgb(74, 213, 231);
+            border-radius: 6px;
+            height: 48px;
+            width: 90px;
+            border: rgb(30, 127, 139) solid 2px;
+            font-weight: bold;
+            margin-left: 550px;
+            font-family: Georgia, serif;
+        }
+        
+        button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            background-color: #A2F2F1;
+        }
+        
+        #secondQuestionAnswer:focus {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+        #thirdQuestionAnswer:focus {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
     <script>
         function main() {
             p = new Suica();
-            //oxyz();
             lookAt([70, -3, 6], [-3, 0, 0], [0, 0, 1]);
-            //Създаваме земята от 3х20 кубчета
+            //Правим интерактивна сцена
+            p.gl.canvas.addEventListener('mousedown', mouseDown, false);
+            p.gl.canvas.addEventListener('mousemove', mouseMove, false);
+            p.gl.canvas.addEventListener('contextmenu', function(param) {
+                param.preventDefault();
+            }, false);
+
+            //Създаваме земята от 3х120 кубчета
             //Централното кубче е в (0,0,-1)
             for (var x = -1; x <= 1; x++) {
                 for (var y = -60; y <= 60; y++) {
-                    cube([x, y, -5.5], 2).custom({
+                    cube([x, y, -5], 2).custom({
                         color: [1, 0.8, 0.5]
                     });
                 }
             }
-            //demo(50);
+            //Създаваме тялото на котето
             var body = cylinder([0, -40, 0], 2, 3).custom({
                 color: [1, 0.6, 0.18],
                 focus: [0, 1, 0]
             });
+            //Създаваме задната част на котето
             var bottomPart = sphere([0, -40.4, 0], 2).custom({
                 color: [1, 0.6, 0.18]
             });
+            //Създаваме предната част на котето
             var topPart = sphere([0, -37, 0], 2).custom({
                 color: [1, 0.6, 0.18]
             });
+            //Създаваме врата на котето
             var neck = cylinder([0, -37, 0], 1, 2).custom({
                 color: [1, 0.6, 0.18]
             });
+            //Създаваме групов обект head, в която ще бъдат обединени всички части от главата на котето
             head = group([]);
+            //Създаваме главата на котето
             var headBasicPart = sphere([0, -36.8, 3.5], 2).custom({
                 color: [1, 0.6, 0.18]
             });
             head.add(headBasicPart);
+            //Създаваме групов обект ears, в която ще бъдат добавени двете уши на котето
             var ears = group([]);
             var firstEar = cone([0.8, -36.8, 4.4], 1, 2).custom({
                 color: [1, 0.6, 0.18]
@@ -46,6 +107,7 @@
             ears.add(firstEar);
             ears.add(secondEar);
             head.add(ears);
+            //Създаваме групов обект eyes, в която ще бъдат добавени двете очи на котето
             var eyes = group([]);
             var firstEye = sphere([0.8, -35.4, 4.3], 0.4).custom({
                 color: [0, 0, 0]
@@ -55,12 +117,15 @@
                 color: [0, 0, 0]
             });
             eyes.add(secondEye);
+            //Създаваме носа на котето като чрез focus го обръщаме надясно
             var nose = cone([0, -35, 3.5], 0.6, 0.8).custom({
                 color: [1, 0.6, 0.18],
                 focus: [0, 1, 0]
             });
             head.add(eyes);
             head.add(nose);
+            //Създаваме групов обект mustache, в която са добавени leftMustache и rightMustache
+            //груповите обекти leftMustache и rightMustache съдържат по 3 мустака на котето
             var mustache = group([]);
             var leftMustache = group([]);
             var rightMustache = group([]);
@@ -91,6 +156,8 @@
             mustache.add(leftMustache);
             mustache.add(rightMustache);
             head.add(mustache);
+            //Създаваме групов обект rightFront, в която са добавени rightFrontLeg и rightFrontFoot, които
+            //представляват десен преден крак и стъпалото
             var rightFront = group([]);
             var rightFrontLeg = cylinder([1, -37, -4], 0.5, 2.7).custom({
                 color: [1, 0.6, 0.18]
@@ -100,6 +167,7 @@
             });
             rightFront.add(rightFrontLeg);
             rightFront.add(rightFrontFoot);
+            //Аналогично на rightFront
             var leftFront = group([]);
             var leftFrontLeg = cylinder([-1, -37, -4], 0.5, 2.7).custom({
                 color: [1, 0.6, 0.18]
@@ -109,6 +177,7 @@
             });
             leftFront.add(leftFrontLeg);
             leftFront.add(leftFrontFoot);
+            //Аналогично на rightFront
             var rightBack = group([]);
             var rightBackLeg = cylinder([1, -40, -4], 0.5, 2.7).custom({
                 color: [1, 0.6, 0.18]
@@ -118,6 +187,7 @@
             });
             rightBack.add(rightBackLeg);
             rightBack.add(rightBackFoot);
+            //Аналогично на rightFront
             var leftBack = group([]);
             var leftBackLeg = cylinder([-1, -40, -4], 0.5, 2.7).custom({
                 color: [1, 0.6, 0.18]
@@ -127,6 +197,7 @@
             });
             leftBack.add(leftBackLeg);
             leftBack.add(leftBackFoot);
+            //Създаваме групов обект tail, в която се намират частите от опашката на котето
             var tail = group([]);
             var firstTailPart = sphere([0, -41.6, 0], 1).custom({
                 color: [1, 0.6, 0.18]
@@ -140,6 +211,7 @@
             tail.add(firstTailPart);
             tail.add(secondTailPart);
             tail.add(thirdTailPart);
+            //Създаваме групов обект bodyWithoutLegs, в която се съдържа цялото тяло на котето без краката
             bodyWithoutLegs = group([]);
             bodyWithoutLegs.add(body);
             bodyWithoutLegs.add(bottomPart);
@@ -147,16 +219,21 @@
             bodyWithoutLegs.add(neck);
             bodyWithoutLegs.add(head);
             bodyWithoutLegs.add(tail);
+            //Създаваме групов обект rightLegs, в която се съдържат преден десен крак и заден десен крак
             rightLegs = group([]);
             rightLegs.add(rightFront);
             rightLegs.add(rightBack);
+            //Създаваме групов обект leftLegs, в която се съдържат преден ляв крак и заден ляв крак
             leftLegs = group([]);
             leftLegs.add(leftFront);
             leftLegs.add(leftBack);
+            //Създаваме групов обект cat, която съдържа цялото тяло на котето
             cat = group([]);
             cat.add(bodyWithoutLegs);
             cat.add(rightLegs);
             cat.add(leftLegs);
+            //Създаваме купичка с храна за котето
+            //Купичката се състои от 2 сфери, пресечени с равнина чрез свойството clipPlanes
             firstBowlFirstPart = sphere([0, -25, -1], 3).custom({
                 color: [0.85, 0.2, 0.5],
                 clipPlanes: [
@@ -169,6 +246,8 @@
                     [0, 0, 5, 0]
                 ]
             });
+            //Създаваме групов обект firstFood, в който генерираме случайно големи сфери и кубчета, които приличат на котешка храна
+            //Създаваме 4 такива купички
             firstFood = group([]);
             for (var i = 0; i < 100; i++) {
                 var style = {
@@ -255,6 +334,8 @@
                     thirdFood.add(sphere([0, 0, 0], 0.5).custom(style));
             }
 
+            //Създаваме още едно коте, аналогично на първото, но по-голямо
+
             var body = cylinder([0, 32.5, 0], 3, 6).custom({
                 color: [1, 0.6, 0.18],
                 focus: [0, 1, 0]
@@ -291,10 +372,13 @@
             var secondEye = sphere([-1, 40.4, 6], 0.4).custom({
                 color: [0, 0, 0]
             });
+            eyes.add(secondEye);
             var nose = cone([0, 40.4, 5], 1, 1).custom({
                 color: [1, 0.6, 0.18],
                 focus: [0, 1, 0]
             });
+            head.add(eyes);
+            head.add(nose);
             var mustache = group([]);
             var leftMustache = group([]);
             var rightMustache = group([]);
@@ -324,6 +408,7 @@
             leftMustache.add(sixthMustache);
             mustache.add(leftMustache);
             mustache.add(rightMustache);
+            head.add(mustache);
             var legs = group([]);
             var rightFront = group([]);
             var rightFrontLeg = cylinder([1.5, 38, -4], 0.5, 3).custom({
@@ -369,59 +454,112 @@
             var firstTailPart = sphere([0, 29.8, 0], 1).custom({
                 color: [1, 0.6, 0.18]
             });
+            tail.add(firstTailPart);
             var secondTailPart = cylinder([0, 29.5, 0], 0.5, 6).custom({
                 color: [1, 0.6, 0.18]
             });
+            tail.add(secondTailPart);
             var thirdTailPart = sphere([0, 29.5, 6], 0.5).custom({
                 color: [1, 0.6, 0.18]
             });
-            //demo(80);
+            tail.add(thirdTailPart);
+        }
+        lookA = 0;
+        lookB = 0;
+        lookD = 80;
 
-
-            //p.nextFrame = move;
+        function mouseDown(event) {
+            x = event.clientX;
+            y = event.clientY;
         }
 
-        // function move() {
-        //     while (cat.center[1] <= 6) {
-        //         cat.center[1]++;
-        //     }
-        //     //cat.center[1]++;
-        //     // while (cat.center[1] > 6) {
-        //     //     head.center[1]++;
-        //     //     head.center[2]--;
-        //     // }
-        // }
+        function mouseMove(event) {
+            if (event.buttons == 1) {
+                lookA -= (event.clientX - x) / 100;
+                lookB += (event.clientY - y) / 100;
+                if (lookB > +1.5) lookB = +1.5;
+                if (lookB < -1.5) lookB = -1.5;
+            }
+
+            if (event.buttons == 2) {
+                lookD *= Math.pow(1.01, event.clientY - y);
+                if (lookD < 10) lookD = 10;
+                if (lookD > 1000) lookD = 1000;
+            }
+
+            lookAt([lookD * Math.cos(lookA) * Math.cos(lookB),
+                lookD * Math.sin(lookA) * Math.cos(lookB),
+                lookD * Math.sin(lookB)
+            ], [0, 0, 0], [0, 0, 1]);
+            x = event.clientX;
+            y = event.clientY;
+        }
+
+        function check(answers) {
+            document.getElementById("75").value = answers;
+        }
+
+        function correctAnswers() {
+            var correctAnsw = 0;
+            var firstQuestionAnsw = document.getElementById('75');
+            if (firstQuestionAnsw.checked == true) {
+                correctAnsw++;
+            }
+            var secondQuestionAnsw = document.getElementById('secondQuestionAnswer').value;
+            if (secondQuestionAnsw == 12.5) {
+                correctAnsw++;
+            }
+            var thirdQuestionAnsw = document.getElementById('thirdQuestionAnswer').value;
+            if (thirdQuestionAnsw == 3520) {
+                correctAnsw++;
+            }
+            numberOfCorrectAnswers.innerHTML = correctAnsw;
+        }
     </script>
 </head>
 
 <body onload="main()">
     <span id="n1" style="position:fixed; padding: 0.25em;"></span>
     <canvas id="1" width="1200" height="500" style="border: solid 1px black;"></canvas>
+    <h2 id="header">Задача с коте</h2>
+    <h2>Въпрос 1</h2>
     <p id="task">
         Котенце, тежащо 3 килограма изминава 10 метра за 20 секунди. То преминава от една купичка с храна на друга. Знаем, че между купичките има 20 метра и знаем, че изяжда една купичка за 150 секунди. Също така знаем, че преди първата купичка има 15 метра.
         Ако котето е минало през 4 купички с храна, то колко метра е изминало, колко време ще му е необходимо, за да стигне от началото до края и колко ще тежи накрая, ако знаем, че във всяка купичка има 130 грама храна?
     </p>
     <p id="firstQuestion">Колко метра е изминало котето?</p>
-    <label>
+    <div id="radioAnswers">
+        <label>
     <input type="radio" name="time" id="60">60
     </label>
-    <label>
+        <label>
     <input type="radio" name="time" id="70">70
     </label>
-    <label>
+        <label>
     <input type="radio" name="time" id="65">65
     </label>
-    <label>
+        <label>
     <input type="radio" name="time" id="75">75
     </label>
-    <label><input type="radio" name="time" id="80">80
+        <label>
+    <input type="radio" name="time" id="80">80
     </label>
+    </div>
+    <h2>Въпрос 2</h2>
     <p id="secondQuestion">Колко време (в минути) ще е необходимо на котето, за да стигне от началото до края?</p>
     <p class="answ">Отговор:</p>
-    <input type="text" id="secondQuestionAnswer">
-    <!--12 минути и 30 секунди-->
+    <input type="text" id="secondQuestionAnswer" placeholder="Въведете отговор">
+    <!--12.5 минути-->
+    <h2>Въпрос 3</h2>
     <p id="thirdQuestion">Колко ще тежи котето накрая (в грамове)?</p>
     <p class="answ">Отговор:</p>
-    <input type="text" id="secondQuestionAnswer">
+    <input type="text" id="thirdQuestionAnswer" placeholder="Въведете отговор">
     <!--3520 грама-->
+    <br/>
+    <br/>
+    <button type="button" id="result" onclick="correctAnswers()">Изчисли</button>
+    <br/>
+    <p id="correctAnswers">Верни отговори: </p>
+    <p id="numberOfCorrectAnswers"></p>
+    <button type="button"><a href="index.html">Назад</button>
 </body>

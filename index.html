@@ -7,26 +7,26 @@
     <script src="suica.min.js"></script>
     <script>
         function createRuler() {
-            //new Suica();
             lookAt([20, 60, 0], [1, 1, 1], [0, 1, 1]);
 
+            //Създаваме основната част на линията
             cuboid([0, 0, 2.5], [40, 0.7, 4]).custom({
-                color: [1, 0.5, 1]
+                color: [0.01, 0.85, 0.95]
             });
             spheroid([19.8, 0, 2.5], [1, 0.5, 2]).custom({
-                color: [1, 0.5, 1]
+                color: [0.01, 0.85, 0.95]
             });
             spheroid([-19.8, 0, 2.5], [1, 0.5, 2]).custom({
-                color: [1, 0.5, 1]
+                color: [0.01, 0.85, 0.95]
             });
+
+            //Създаваме линийките на линията
             cuboid([18, 0.5, 3], [0.5, 0.5, 3]).custom({
                 color: [0, 0, 0]
             });
-
             cuboid([17.2, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
                 color: [0, 0, 0]
             });
-
             cuboid([16.6, 0.5, 3.5], [0.2, 0.5, 1.5]).custom({
                 color: [0, 0, 0]
             });
@@ -183,15 +183,16 @@
         }
 
         function createWeighingMachine() {
-            //new Suica();
             lookAt([20, 40, 35], [1, 5, 5], [-1, 1, 5]);
+            //Създаваме основната част на кантара
             cuboid([0, 0, 2.5], [20, 20, 4]).custom({
                 color: [0.6, 0.6, 0.6]
             });
+            //Създаваме циферблата на кантара
             circle([-5, 0.5, 5], 4).custom({
                 color: [1, 1, 1]
             });
-
+            //Създаваме чертички за числата на кантара
             segment([-9, 0.5, 5], [-6, 0.5, 5]).custom({
                 color: [0, 0, 0]
             });
@@ -204,7 +205,6 @@
             segment([-6.8, 4.2, 5], [-6, 3.5, 5]).custom({
                 color: [0, 0, 0]
             });
-
             segment([-9, -1, 5], [-7.5, -0.5, 5]).custom({
                 color: [0, 0, 0]
             });
@@ -217,112 +217,127 @@
         }
 
         function createClock() {
-            //p = new Suica();
             lookAt([60, 0, 100], [0, 0, 0], [0, 0, 1]);
+            //Създаваме основната част на чаовника
+            base = cylindroid([0, 0, 0], [24, 24], 2).custom({
+                color: [0.01, 0.85, 0.95]
+            });
 
-            clock = group([]);
-            base = cylindroid([0, 0, 0], [24, 24], 2);
-
+            //Създаваме централната част на часовника, точката, от която започват двете стрелки
             point([0, 0, 2.2]).custom({
                 color: [0, 0, 0]
             });
-            strelka = segment([0, 0, 2.2], [-16, 0, 2.2]).custom({
+            //Създаваме двете стрелки
+            var firstArrow = segment([0, 0, 2.2], [-16, 0, 2.2]).custom({
                 color: [0, 0, 0]
             });
-            var strelka2 = segment([0, 0, 2.2], [4, 7, 2.2]).custom({
+            var secondArrow = segment([0, 0, 2.2], [4, 7, 2.2]).custom({
                 color: [0, 0, 0]
             });
-            var dvanadesetChasa = segment([-24, 0, 2.2], [-18.5, 0, 2.2]).custom({
+            //Създаваме линийки за 12, 3, 6 и 9 часа
+            var twelve = segment([-24, 0, 2.2], [-18.5, 0, 2.2]).custom({
                 color: [0, 0, 0]
             });
-            var triChasa = segment([0, 24, 2.2], [0, 18.5, 2.2]).custom({
+            var three = segment([0, 24, 2.2], [0, 18.5, 2.2]).custom({
                 color: [0, 0, 0]
             });
-            var shestChasa = segment([24, 0, 2.2], [18.5, 0, 2.2]).custom({
+            var six = segment([24, 0, 2.2], [18.5, 0, 2.2]).custom({
                 color: [0, 0, 0]
             });
-            var devetChasa = segment([0, -24, 2.2], [0, -18.5, 2.2]).custom({
+            var nine = segment([0, -24, 2.2], [0, -18.5, 2.2]).custom({
                 color: [0, 0, 0]
             });
 
         }
 
         function createThermometer() {
-            //new Suica();
-
-            cyl = cylinder([7, 3, 0], 2, 13).custom({
+            lookAt([30, 50, 10], [-4, 0, 1], [0, 0, 1]);
+            //Всеки от термометрите ни се състои от долна, средна и горна сива част
+            //и долна и средна цветна част
+            //Създаваме средната сива част на синия термометър
+            var cyl = cylinder([7, 3, 0], 2, 13).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            //Създаваме горната сива част на синия термометър
+            var topPart = sphere([7, 3, 12.9], 2).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+            //Създаваме долната сива част на синия термометър
+            var bottomPart = sphere([7, 3, 0], 4).custom({
                 color: [0.8, 0.8, 0.8]
             });
 
-            topPart = sphere([7, 3, 12.9], 2).custom({
-                color: [0.8, 0.8, 0.8]
-            });
-            bottomPart = sphere([7, 3, 0], 4).custom({
-                color: [0.8, 0.8, 0.8]
-            });
-            blueBottomPart = sphere([10.5, 5, 1.3], 3).custom({
+            //Създаваме долната синя част на синия термометър
+            var blueBottomPart = sphere([7, 3, 0], 5).custom({
                 color: [0.01, 0.7, 0.95]
             });
-            blueCyl = cylinder([10.5, 5, 1.5], 1.3, 6).custom({
+            //Създаваме средната синя част на синия термометър
+            var blueCyl = cylinder([7, 3.2, 0], 2, 7).custom({
                 color: [0.01, 0.7, 0.95]
             });
-            blueTopPart = sphere([10.5, 5, 6.9], 1.3).custom({
-                color: [0.01, 0.7, 0.95]
-            });
 
-            cyl1 = cylinder([-3, 8, -1.9], 2, 13.6).custom({
+            //Създаваме средната сива част на зеления термометър
+            var cyl1 = cylinder([-3, 8, -1.9], 2, 13.6).custom({
                 color: [0.8, 0.8, 0.8]
             });
-
-            topPart1 = sphere([-3, 8, 12], 2).custom({
+            //Създаваме горната сива част на зеления термометър    
+            var topPart1 = sphere([-3, 8, 12], 2).custom({
                 color: [0.8, 0.8, 0.8]
             });
-            bottomPart1 = sphere([-3, 8, -2.2], 4).custom({
+            //Създаваме долната сива част на зеления термометър
+            var bottomPart1 = sphere([-3, 8, -2.2], 4).custom({
                 color: [0.8, 0.8, 0.8]
             });
-            greenCyl = cylinder([0, 9.5, 1.5], 1.3, 7.5).custom({
+            //Създаваме средната зелена част на зеления термометър
+            var greenCyl = cylinder([-3, 8.05, -1.9], 2, 10).custom({
                 color: [0.6, 0.9, 0.01]
             });
-            greenTopPart = sphere([0, 9.5, 9], 1.3).custom({
+            //Създаваме долната зелена част на зеления термометър
+            var greenBottomPart = sphere([-3, 8, -2.2], 5).custom({
                 color: [0.6, 0.9, 0.01]
             });
-            greenBottomPart = sphere([0, 9.5, -0.7], 3).custom({
-                color: [0.6, 0.9, 0.01]
-            });
-            cyl2 = cylinder([-15, 13, -2.5], 2, 13.6).custom({
+            //Създаваме средната сива част на червения термометър
+            var cyl2 = cylinder([-15, 13, -2.5], 2, 13.6).custom({
                 color: [0.8, 0.8, 0.8]
             });
-
-            topPart2 = sphere([-15, 13, 11], 2).custom({
+            //Създаваме горната сива част на червения термометър
+            var topPart2 = sphere([-15, 13, 11], 2).custom({
                 color: [0.8, 0.8, 0.8]
             });
-            bottomPart2 = sphere([-15, 13, -5], 4).custom({
+            //Създаваме долната сива част на червения термометър
+            var bottomPart2 = sphere([-15, 13, -5], 4).custom({
                 color: [0.8, 0.8, 0.8]
             });
-            redCyl = cylinder([-12, 14.2, -1.5], 1.3, 13.5).custom({
+            //Създаваме средната червена част на червения термометър
+            var redCyl = cylinder([-15, 13.002, -2.5], 2, 13.6).custom({
                 color: [1, 0.3, 0.3]
             });
-            redTopPart = sphere([-12, 14.2, 11.8], 1.3).custom({
+            //Създаваме червената горна част на червения термометър
+            var redTopPart = sphere([-14.5, 13.4, 11], 1.8).custom({
                 color: [1, 0.3, 0.3]
             });
-            redBottomPart = sphere([-12, 14.2, -4], 3).custom({
+            //Създаваме долната червена част на червения термометър
+            var redBottomPart = sphere([-15, 13, -5], 5).custom({
                 color: [1, 0.3, 0.3]
             });
         }
 
         function createLight() {
-            //new Suica();
             light = group([]);
-            bottomLightPart = cylinder([0, 0, -10], 3, 5).custom({
+            //Създаваме крушка
+            //Създаваме долната част на крушката
+            var bottomLightPart = cylinder([0, 0, -10], 3, 5).custom({
                 color: [0.8, 0.8, 0.8]
             });
-            secondBottomPart = sphere([0, 0, -10], 3).custom({
+            var secondBottomPart = sphere([0, 0, -10], 3).custom({
                 color: [0.8, 0.8, 0.8]
             });
-            secondBottomLightPart = cylinder([0, 0, -4], 5, 6).custom({
+            //Създаваме долната част на жълтата част на крушката
+            var secondBottomLightPart = cylinder([0, 0, -4], 5, 6).custom({
                 color: [1, 0.8, 0.1]
             });
-            topLightPart = sphere([0, 0, 6], 8).custom({
+            //Създавамегорната част на жълтата част на крушата
+            var topLightPart = sphere([0, 0, 6], 8).custom({
                 color: [1, 0.8, 0.1]
             });
             light.add(bottomLightPart);
@@ -330,16 +345,17 @@
             light.add(secondBottomPart);
             light.add(topLightPart);
 
-            first = segment([0, 3, 17], [-4, 3, 23]).custom({
+            //Създаваме 4 линийки, които дават представата, че крушката свети
+            var first = segment([0, 3, 17], [-4, 3, 23]).custom({
                 color: [1, 0.8, 0.1]
             });
-            second = segment([-3, 7, 15], [-9, 10, 21]).custom({
+            var second = segment([-3, 7, 15], [-9, 10, 21]).custom({
                 color: [1, 0.8, 0.1]
             });
-            third = segment([10, 3, 18], [14, 3, 24]).custom({
+            var third = segment([10, 3, 18], [14, 3, 24]).custom({
                 color: [1, 0.8, 0.1]
             });
-            forth = segment([15, 1, 16], [27, 5, 22]).custom({
+            var forth = segment([15, 1, 16], [27, 5, 22]).custom({
                 color: [1, 0.8, 0.1]
             });
             light.add(first);
@@ -349,14 +365,17 @@
         };
 
         function createAmper() {
-            //new Suica();
-            //oxyz();
+            //Създаваме 4 сфери
+            //Първите две се отдалечават,тъй като са еднакви
+            //Вторите две се привличат, тъй като са различни
+            //Създаваме сферите
             var q1 = sphere([-2, -8, 8], 4).custom({
                 color: [0.2, 0.2, 0.6]
             });
             var q2 = sphere([-8, 8, 8.5], 4).custom({
                 color: [0.2, 0.2, 0.6]
             });
+            //Създаваме стрелките, които показват дали сферите се привличат или отдалечават
             var firstLineForQ1 = segment([8, -4, 10], [20, -4, 12]).custom({
                 color: [0.2, 0.2, 0.6]
             });
@@ -402,10 +421,11 @@
         }
 
         function createMol() {
-            //new Suica();
-            //oxyz();
+            lookAt([30, 20, 10], [-4, 0, 3], [0, 0, 1]);
+            //Създаваме молекула, която се състои от 9 еднакви по размер сфери
+            //и от 8 цилиндъра 
             var firstSphere = sphere([0, 0, 10], 2).custom({
-                color: [0.5, 0.7, 0.85]
+                color: [0.01, 0.85, 0.95]
             });
             var secondSphere = sphere([0, 0, 5], 2).custom({
                 color: [0.85, 0.2, 0.5]
@@ -414,14 +434,14 @@
                 color: [0.3, 0.32, 0.4]
             });
             var thirdSphere = sphere([0, 10, 5], 2).custom({
-                color: [0.5, 0.7, 0.85]
+                color: [0.01, 0.85, 0.95]
             });
             var secondCyl = cylinder([0, 0, 5], 0.5, 10).custom({
                 color: [0.3, 0.32, 0.4],
                 focus: [0, 1, 0]
             });
             var forthSphere = sphere([0, -10, 5], 2).custom({
-                color: [0.5, 0.7, 0.85]
+                color: [0.01, 0.85, 0.95]
             });
             var thirdCyl = cylinder([0, -10, 5], 0.5, 10).custom({
                 color: [0.3, 0.32, 0.4],
@@ -452,15 +472,15 @@
                 color: [0.3, 0.32, 0.4]
             });
             var ninthCyl = sphere([0, 0, 0], 2).custom({
-                color: [0.5, 0.7, 0.85]
+                color: [0.01, 0.85, 0.95]
             });
             var eightCyl = cylinder([0, 0, 0], 0.5, 5).custom({
                 color: [0.3, 0.32, 0.4]
             });
-            //demo(60);
         }
 
         function main() {
+            //Създаваме различни прозорци за различните елементи, които са създадени предварително
             firstRow = new Suica('ruller');
             ruller = createRuler();
 
@@ -488,62 +508,62 @@
 
 <body onload="main()">
     <h1>Мерни единици</h1>
-    <h4>Интерактивен урок | Весела Стоянова</h4>
+    <h4>Интерактивен урок | Весела Стоянова | 71949</h4>
     <section id="basicMeasurementUnits">
         <h2>
-            1. Основна информация
+            Основна информация
         </h2>
         <h3>
-            1.1. Основни мерни единици
+            Основни мерни единици
         </h3>
         <p>
             Международната система единици SI е най-често използваната система за мерни единици. Тя се използва в науката, стопанството и техниката. Тя е изградена от 7+2 основни независими единици. Всички останали мерни единици могат да бъдат получени чрез набор
             от стандартни представки, които се явяват като десетични множители или чрез произведението/частното на две единици от нея. Тези мерни единици се наричат производни.
         </p>
-        <table border="1">
+        <table border="1" id="basicUnits">
             <th>Име</th>
             <th>Означение</th>
             <th>Физична величина</th>
-            <th>Изображение</th>>
+            <th>Изображение</th>
             <tr>
-                <td>Метър</td>
-                <td>m</td>
+                <td style="font-weight: bold;">Метър</td>
+                <td style="font-weight: bold;">m</td>
                 <td>Дължина</td>
                 <td width="150"><canvas id="ruller" width="170" height="100"> </td>
             </tr>
             <tr>
-                <td>Килограм</td>
-                <td>kg</td>
+                <td style="font-weight: bold;">Килограм</td>
+                <td style="font-weight: bold;">kg</td>
                 <td>Маса</td>
                 <td width="150"><canvas id="weighingMachine" width="170" height="100"></td>
             </tr>
             <tr>
-                <td>Секунда</td>
-                <td>s</td>
+                <td style="font-weight: bold;">Секунда</td>
+                <td style="font-weight: bold;">s</td>
                 <td>Време</td>
                 <td width="150"><canvas id="clock" width="170" height="100"></td>
             </tr>
             <tr>
-                <td>Ампер</td>
-                <td>A</td>
+                <td style="font-weight: bold;">Ампер</td>
+                <td style="font-weight: bold;">A</td>
                 <td>Електрически ток</td>
                 <td width="150"><canvas id="amper" width="170" height="100"></td>
             </tr>
             <tr>
-                <td>Келвин</td>
-                <td>K</td>
+                <td style="font-weight: bold;">Келвин</td>
+                <td style="font-weight: bold;">K</td>
                 <td>Термодинамична температура</td>
                 <td width="150"><canvas id="thermometer" width="170" height="100"></td>
             </tr>
             <tr>
-                <td>Мол</td>
-                <td>mol</td>
+                <td style="font-weight: bold;">Мол</td>
+                <td style="font-weight: bold;">mol</td>
                 <td>Количество вещество</td>
                 <td width="150"><canvas id="mol" width="170" height="100"></td>
             </tr>
             <tr>
-                <td>Кандела</td>
-                <td>cd</td>
+                <td style="font-weight: bold;">Кандела</td>
+                <td style="font-weight: bold;">cd</td>
                 <td>Интензитет на светлината</td>
                 <td width="150"><canvas id="light" width="170" height="100"></td>
             </tr>
@@ -551,7 +571,7 @@
     </section>
     <section id="additionalMeasurementUnits">
         <h3>
-            1.2. Допълнителни единици
+            Допълнителни единици
         </h3>
         <p>
             Единиците за ъгъл радиан и стерадиан се смятат за специален клас допълнителни единици.
@@ -561,29 +581,29 @@
             <th>Означение</th>
             <th>Физична величина</th>
             <tr>
-                <td>Радиан</td>
-                <td>rad</td>
+                <td style="font-weight: bold;">Радиан</td>
+                <td style="font-weight: bold;">rad</td>
                 <td>Равнинен ъгъл</td>
             </tr>
             <tr>
-                <td>Стерадиан</td>
-                <td>sr</td>
+                <td style="font-weight: bold;">Стерадиан</td>
+                <td style="font-weight: bold;">sr</td>
                 <td>Пространствен ъгъл</td>
             </tr>
         </table>
     </section>
     <section id="derivateMeasurementUnits">
-        <h3>1.3. Производни единици</h3>
-        <!-- Линк към друга html страница, в която описваме производните единици изразени чрез основните -->
-        <!-- Тоест от уикипедия таблицата с честота, сила, енергия и тн -->
+        <h3>
+        <a href="derivativeUnits.html">Производни единици</a>
+        </h3>
     </section>
     <section id="measurmentUnitsConversion">
-        <h2>2. Преобразуване на мерни единици</h2>
+        <h2>Преобразуване на мерни единици</h2>
         <p>
             В практиката е често необходимо използването на твърде голяма или твърде малка стойност на някоя от основните мерни единици. По тази причина е приета система с представки, които се явяват като десетични множители.
         </p>
         <table border="1">
-            <th rowspan="3">По-големи от основната SI единица</th>
+            <th rowspan="3"><a href="changeUnitsToBigger.html" style="color:black;">По-големи от основната SI единица</a></th>
             <th>Име</th>
             <th></th>
             <th>дека-</th>
@@ -597,7 +617,7 @@
             <th>сета-</th>
             <th>йота-</th>
             <tr>
-                <td>Означение</td>
+                <td style="font-weight: bold;">Означение</td>
                 <td></td>
                 <td>da</td>
                 <td>h</td>
@@ -611,7 +631,7 @@
                 <td>Y</td>
             </tr>
             <tr>
-                <td>Стойност</td>
+                <td style="font-weight: bold;">Стойност</td>
                 <td>10<sup>0</sup></td>
                 <td>10<sup>1</sup></td>
                 <td>10<sup>2</sup></td>
@@ -625,8 +645,11 @@
                 <td>10<sup>24</sup></td>
             </tr>
         </table>
+        <br/>
         <table border="1">
-            <th rowspan="3">По-малки от основната SI единица</th>
+            <th rowspan="3">
+                <a href="changeUnitsToSmaller.html" style="color:black;" style="text-align: center">По-малки от основната SI единица</a></th>
+                
             <th>Име</th>
             <th></th>
             <th>деци-</th>
@@ -640,7 +663,7 @@
             <th>септо-</th>
             <th>йокто-</th>
             <tr>
-                <td>Означение</td>
+                <td style="font-weight: bold;">Означение</td>
                 <td></td>
                 <td>d</td>
                 <td>c</td>
@@ -654,7 +677,7 @@
                 <td>y</td>
             </tr>
             <tr>
-                <td>Стойност</td>
+                <td style="font-weight: bold;">Стойност</td>
                 <td>10<sup>0</sup></td>
                 <td>10<sup>-1</sup></td>
                 <td>10<sup>-2</sup></td>
@@ -668,6 +691,12 @@
                 <td>10<sup>-24</sup></td>
             </tr>
         </table>
+    </section>
+    <section id="tasks">
+        <h2><a href="gameWithCat.html">Задача 1</a></h2>
+        <h3><a href="firstTaskAnswers.html">Решение на задача 1</a></h3>
+        <h2><a href="gameWithBinding.html">Задача 2</a></h2>
+        <h3><a href="secondTaskAnswers.html">Решение на задача 2</a></h3>
     </section>
 </body>
 

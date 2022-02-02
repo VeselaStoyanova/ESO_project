@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="suica.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesForChangingUnits.css">
+
+    <script>
+        function main() {
+            p = new Suica();
+            lookAt([120, 160, 10], [-4, 0, -6], [0, 0, 1]);
+            //Правим интерактивна сцена
+            p.gl.canvas.addEventListener('mousedown', mouseDown, false);
+            p.gl.canvas.addEventListener('mousemove', mouseMove, false);
+            p.gl.canvas.addEventListener('contextmenu', function(param) {
+                param.preventDefault();
+            }, false);
+
+            //Създаваме кула от 11 етажа
+            //Създаваме я от няколко паралелепипеда, еднакви по размер и цвят
+            var firstFloor = group([]);
+            firstFloor.add(cuboid([0, 0, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, -8.1, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, 8.1, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, -16.2, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, 16.2, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, -24.3, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, 24.25, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, -32.4, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, 32.4, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloor.add(cuboid([0, -40.5, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            firstFloorLastCuboid = firstFloor.add(cuboid([0, 40.5, -25], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor = group([]);
+            secondFloor.add(cuboid([0, -35.5, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, -27.4, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, -19.3, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, -11.2, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, -3.1, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, 5, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, 13.1, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, 21.2, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, 29.3, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            secondFloor.add(cuboid([0, 37.4, -18.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor = group([]);
+            thirdFloor.add(cuboid([0, -31.5, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, -23.4, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, -15.3, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, -7.2, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, 0.9, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, 9, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, 17.1, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, 25.2, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            thirdFloor.add(cuboid([0, 33.3, -12.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor = group([]);
+            forthFloor.add(cuboid([0, -27.5, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor.add(cuboid([0, -19.4, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor.add(cuboid([0, -11.3, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor.add(cuboid([0, -3.2, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor.add(cuboid([0, 4.9, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor.add(cuboid([0, 13, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor.add(cuboid([0, 21.1, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            forthFloor.add(cuboid([0, 29.2, -6.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            fifthFloor = group([]);
+            fifthFloor.add(cuboid([0, -23.5, -0.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            fifthFloor.add(cuboid([0, -15.4, -0.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            fifthFloor.add(cuboid([0, -7.3, -0.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            fifthFloor.add(cuboid([0, 0.8, -0.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            fifthFloor.add(cuboid([0, 8.9, -0.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            fifthFloor.add(cuboid([0, 17, -0.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            fifthFloor.add(cuboid([0, 25.1, -0.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            sixthFloor = group([]);
+            sixthFloor.add(cuboid([0, -19.4, 5.5], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            sixthFloor.add(cuboid([0, -11.3, 5.5], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            sixthFloor.add(cuboid([0, -3.2, 5.5], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            sixthFloor.add(cuboid([0, 4.9, 5.5], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            sixthFloor.add(cuboid([0, 13, 5.5], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            sixthFloor.add(cuboid([0, 21.1, 5.5], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            seventhFloor = group([]);
+            seventhFloor.add(cuboid([0, -15.3, 11.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            seventhFloor.add(cuboid([0, -7.2, 11.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            seventhFloor.add(cuboid([0, 0.9, 11.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            seventhFloor.add(cuboid([0, 9, 11.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            seventhFloor.add(cuboid([0, 17.1, 11.6], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            eightFloor = group([]);
+            eightFloor.add(cuboid([0, -11.3, 17.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            eightFloor.add(cuboid([0, -3.2, 17.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            eightFloor.add(cuboid([0, 4.9, 17.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            eightFloor.add(cuboid([0, 13, 17.7], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            ninthFloor = group([]);
+            ninthFloor.add(cuboid([0, -7.2, 23.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            ninthFloor.add(cuboid([0, 0.9, 23.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            ninthFloor.add(cuboid([0, 9, 23.8], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            tenthFloor = group([]);
+            tenthFloor.add(cuboid([0, -3.1, 29.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            tenthFloor.add(cuboid([0, 5, 29.9], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            }));
+            eleventhFloor = cuboid([0, 1, 36], [10, 8, 6]).custom({
+                color: [0.01, 0.7, 0.95]
+            });
+            //Създаваме сфера, която ще променя координатите си спрямо натиснатия бутон
+            sphere1 = sphere([3, 1, 41.6], 3).custom({
+                color: [0.2, 0.2, 0.6]
+            });
+        }
+
+        function move0() {
+            sphere1.center[0] = 3;
+            sphere1.center[1] = 1;
+            sphere1.center[2] = 41.6;
+            document.getElementById("seeValue").innerHTML = "Основна единица";
+        }
+
+        function moveMinus1() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 8;
+            sphere1.center[2] = 35.6;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-1)";
+        }
+
+        function moveMinus2() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 12;
+            sphere1.center[2] = 29.6;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-2)";
+        }
+
+        function moveMinus3() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 16;
+            sphere1.center[2] = 23.6;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-3)";
+        }
+
+        function moveMinus6() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 20;
+            sphere1.center[2] = 17.6;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-6)";
+        }
+
+        function moveMinus9() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 24;
+            sphere1.center[2] = 11.6;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-9)";
+        }
+
+        function moveMinus12() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 28;
+            sphere1.center[2] = 5.6;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-12)";
+        }
+
+        function moveMinus15() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 32;
+            sphere1.center[2] = -0.4;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-15)";
+        }
+
+        function moveMinus18() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 36;
+            sphere1.center[2] = -6.8;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-18)";
+        }
+
+        function moveMinus21() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 40;
+            sphere1.center[2] = -13.2;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-21)";
+        }
+
+        function moveMinus24() {
+            sphere1.center[0] = 1;
+            sphere1.center[1] = 44;
+            sphere1.center[2] = -18.5;
+            document.getElementById("seeValue").innerHTML = "Основна единица / 10^(-24)";
+        }
+
+        function end() {
+            sphere1.center[0] = 3;
+            sphere1.center[1] = 50;
+            sphere1.center[2] = -24;
+            document.getElementById("seeValue").innerHTML = "Край";
+        }
+
+        lookA = 0;
+        lookB = 0;
+        lookD = 200;
+
+        function mouseDown(event) {
+            x = event.clientX;
+            y = event.clientY;
+        }
+
+        function mouseMove(event) {
+            if (event.buttons == 1) {
+                lookA -= (event.clientX - x) / 100;
+                lookB += (event.clientY - y) / 100;
+                if (lookB > +1.5) lookB = +1.5;
+                if (lookB < -1.5) lookB = -1.5;
+            }
+
+            if (event.buttons == 2) {
+                lookD *= Math.pow(1.01, event.clientY - y);
+                if (lookD < 10) lookD = 10;
+                if (lookD > 1000) lookD = 1000;
+            }
+
+            lookAt([lookD * Math.cos(lookA) * Math.cos(lookB),
+                lookD * Math.sin(lookA) * Math.cos(lookB),
+                lookD * Math.sin(lookB)
+            ], [0, 0, 0], [0, 0, 1]);
+            x = event.clientX;
+            y = event.clientY;
+        }
+    </script>
+</head>
+
+<body onload="main()">
+    <span id="n1" style="position:fixed; padding: 0.25em;"></span>
+    <canvas id="1" width="1000" height="700" style="border: double 8px rgb(30, 127, 139);"></canvas>
+    <div class="buttons">
+        <button onclick="move0()" id="moveZero">Основна единица</button>
+        <button onclick="moveMinus1()" id="moveMinusOne">Деци</button>
+        <button onclick="moveMinus2()" id="moveMinusTwo">Санти</button>
+        <button onclick="moveMinus3()" id="moveMinusThree">Мили</button>
+        <button onclick="moveMinus6()" id="moveMinusSix">Микро</button>
+        <button onclick="moveMinus9()" id="moveMinusNine">Нано</button>
+        <button onclick="moveMinus12()" id="moveMinusTwelve">Пико</button>
+        <button onclick="moveMinus15()" id="moveMinusFifteen">Фемто</button>
+        <button onclick="moveMinus18()" id="moveMinusEighteen">Ато</button>
+        <button onclick="moveMinus21()" id="moveMinusTwentyOne">Септо</button>
+        <button onclick="moveMinus24()" id="moveMinusTwentyFour">Йокто</button>
+        <button onclick="end()" id="moveToEnd">Край</button>
+        <button type="button" id="buttonBack"><a href="index.html">Назад</button>
+    </div>
+    <p id="seeValue"></p>
+</body>

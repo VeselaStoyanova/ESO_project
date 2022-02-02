@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="suica.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            max-width: 1500px;
+            height: 1000px;
+        }
+        
+        canvas {
+            margin-top: 120px;
+            margin-left: 100px;
+        }
+        
+        h2 {
+            margin-top: -800px;
+            margin-bottom: -15px;
+        }
+        
+        #buttonBack:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            background-color: #A2F2F1;
+        }
+        
+        button {
+            background-color: rgb(74, 213, 231);
+            border-radius: 6px;
+            height: 40px;
+            border: rgb(30, 127, 139) solid 4px;
+            font-weight: bold;
+            font-family: Georgia, serif;
+            margin-top: 12em;
+            margin-left: 50em;
+        }
+    </style>
+
+    <script>
+        function main() {
+            p = new Suica();
+            orthographic(-1000, 1000);
+            lookAt([0, 50, 100], [0, 0, 0], [0, 1, 0]);
+            p.gl.canvas.addEventListener('mousedown', mouseDown, false);
+            p.gl.canvas.addEventListener('mouseup', mouseUp, false);
+            p.gl.canvas.addEventListener('mousemove', mouseMove, false);
+
+            var hectometerGroup = group([]);
+            var hectometerCyl = cylinder([80, 30, 700], 30, 500).custom({
+                color: [0, 1, 0],
+                focus: [20, 0.1, 0]
+            });
+            var hectometerLeftSphere = sphere([85, 30, 700], 29.8).custom({
+                color: [0, 1, 0]
+            });
+            var hectometerRightSphere = sphere([583, 31, 697], 29.5).custom({
+                color: [0, 1, 0]
+            });
+
+            hectometerPlaceForAnswer = circle([5, -200, 240], 40).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            hectometerGroup.add(hectometerCyl);
+            hectometerGroup.add(hectometerRightSphere);
+            hectometerGroup.add(hectometerLeftSphere);
+            hectometerGroup.add(hectometerPlaceForAnswer);
+
+            hectoSphere = sphere([-220, 40, 240], 30).custom({
+                interactive: true,
+                color: [1, 1, 0]
+            });
+
+            var secondHectoSphere = sphere([-600, 40, -600], 30).custom({
+                color: [1, 1, 0]
+            });
+            var decameterGroup = group([]);
+            var decameterCyl = cylinder([130, 30, 450], 30, 450).custom({
+                color: [0, 1, 0],
+                focus: [20, 0.1, 0]
+            });
+            var decameterLeftSphere = sphere([135, 30, 450], 29.8).custom({
+                color: [0, 1, 0]
+            });
+            var decameterRightSphere = sphere([580, 31, 448], 29.5).custom({
+                color: [0, 1, 0]
+            });
+            decameterPlaceForAnswer = circle([45, -70, 240], 40).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            decameterGroup.add(decameterCyl);
+            decameterGroup.add(decameterLeftSphere);
+            decameterGroup.add(decameterRightSphere);
+            decameterGroup.add(decameterPlaceForAnswer);
+
+            var seconddecaSphere = sphere([-600, 40, -450], 30).custom({
+                color: [1, 0, 1]
+            });
+            decaSphere = sphere([-390, 250, 240], 30).custom({
+                interactive: true,
+                color: [1, 0, 1]
+            });
+
+            var meterGroup = group([]);
+            var meterCyl = cylinder([180, 30, 200], 30, 400).custom({
+                color: [0, 1, 0],
+                focus: [20, 0.1, 0]
+            });
+            var meterLeftSphere = sphere([185, 30, 200], 29.8).custom({
+                color: [0, 1, 0]
+            });
+            var meterRightSphere = sphere([580, 31, 198], 29.5).custom({
+                color: [0, 1, 0]
+            });
+            meterPlaceForAnswer = circle([85, 60, 240], 40).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            meterGroup.add(meterCyl);
+            meterGroup.add(meterLeftSphere);
+            meterGroup.add(meterRightSphere);
+            meterGroup.add(meterPlaceForAnswer);
+
+            meterSphere = sphere([-320, 150, 240], 30).custom({
+                interactive: true,
+                color: [0.999, 0, 0.001]
+            });
+            var secondMeterSphere = sphere([-600, 40, -300], 30).custom({
+                color: [0.999, 0, 0.001]
+            });
+
+            var decimeterGroup = group([]);
+            var decimeterCyl = cylinder([230, 30, -50], 30, 350).custom({
+                color: [0, 1, 0],
+                focus: [20, 0.1, 0]
+            });
+            var decimeterLeftSphere = sphere([235, 30, -50], 29.8).custom({
+                color: [0, 1, 0]
+            });
+            var decimeterRightSphere = sphere([580, 30, -54], 29.5).custom({
+                color: [0, 1, 0]
+            });
+            decimeterPlaceForAnswer = circle([130, 180, 240], 40).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            decimeterGroup.add(decimeterCyl);
+            decimeterGroup.add(decimeterLeftSphere);
+            decimeterGroup.add(decimeterRightSphere);
+            decimeterGroup.add(decimeterPlaceForAnswer);
+
+            decimeterSphere = sphere([-230, 240, 240], 30).custom({
+                interactive: true,
+                color: [1, 0.6, 0.12]
+            });
+            var secondDecimeterSphere = sphere([-600, 40, -150], 30).custom({
+                color: [1, 0.6, 0.12]
+            });
+
+            var centimeterGroup = group([]);
+            var centimeterCyl = cylinder([280, 30, -300], 30, 300).custom({
+                color: [0, 1, 0],
+                focus: [20, 0.1, 0]
+            });
+            var centimeterLeftSphere = sphere([285, 30, -300], 29.8).custom({
+                color: [0, 1, 0]
+            });
+            var centimeterRightSphere = sphere([580, 31.5, -300], 29.5).custom({
+                color: [0, 1, 0]
+            });
+            centimeterPlaceForAnswer = circle([180, 300, 240], 40).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            centimeterGroup.add(centimeterCyl);
+            centimeterGroup.add(centimeterLeftSphere);
+            centimeterGroup.add(centimeterRightSphere);
+            centimeterGroup.add(centimeterPlaceForAnswer);
+
+            centimeterSphere = sphere([-360, 50, 240], 30).custom({
+                interactive: true,
+                color: [0, 0, 0.999]
+            });
+            var secondCentimeterSphere = sphere([-600, 40, 0], 30).custom({
+                color: [0, 0, 0.999]
+            });
+
+            var milimeterGroup = group([]);
+            var milimeterCyl = cylinder([330, 30, -550], 30, 250).custom({
+                color: [0, 1, 0],
+                focus: [20, 0.1, 0]
+            });
+            var milimeterLeftSphere = sphere([335, 30, -550], 29.8).custom({
+                color: [0, 1, 0]
+            });
+            var milimeterRightSphere = sphere([580, 31.5, -550], 29.5).custom({
+                color: [0, 1, 0]
+            });
+            milimeterPlaceForAnswer = circle([230, 430, 240], 40).custom({
+                color: [0.8, 0.8, 0.8]
+            });
+
+            milimeterGroup.add(milimeterCyl);
+            milimeterGroup.add(milimeterLeftSphere);
+            milimeterGroup.add(milimeterRightSphere);
+            milimeterGroup.add(milimeterPlaceForAnswer);
+
+            milimeterSphere = sphere([-160, 140, 240], 30).custom({
+                interactive: true,
+                color: [0.1, 0.9, 0.97]
+            });
+
+            var secondMilimeterSphere = sphere([-600, 40, 150], 30).custom({
+                color: [0.1, 0.9, 0.97]
+            });
+        }
+        var obj;
+
+        function distance(firstObj, secondObj) {
+            return Math.sqrt((firstObj[0] - secondObj[0]) * (firstObj[0] - secondObj[0]) + (firstObj[0] - secondObj[0]) * (firstObj[1] - secondObj[1]));
+        }
+
+        function mouseDown(event) {
+            x = event.clientX;
+            y = event.clientY;
+            obj = p.objectAtPoint(x, y);
+        }
+
+        function mouseUp(event) {
+            obj = undefined;
+        }
+
+        function mouseMove(event) {
+            if (obj) {
+                obj.center[0] += event.clientX - x;
+                obj.center[1] -= event.clientY - y;
+            }
+
+            x = event.clientX;
+            y = event.clientY;
+
+            if (distance(hectoSphere.center, [5, -200, 240]) < 40) {
+                hectoSphere.radius = 40;
+            } else {
+                hectoSphere.radius = 30;
+            }
+            if (distance(decaSphere.center, [45, -70, 240]) < 40) {
+                decaSphere.radius = 40;
+            } else {
+                decaSphere.radius = 30;
+            }
+            if (distance(meterSphere.center, [85, 60, 240]) < 40) {
+                meterSphere.radius = 40;
+            } else {
+                meterSphere.radius = 30;
+            }
+            if (distance(decimeterSphere.center, [130, 180, 240]) < 40) {
+                decimeterSphere.radius = 40;
+            } else {
+                decimeterSphere.radius = 30;
+            }
+            if (distance(centimeterSphere.center, [180, 300, 240]) < 40) {
+                centimeterSphere.radius = 40;
+            } else {
+                centimeterSphere.radius = 30;
+            }
+            if (distance(milimeterSphere.center, [230, 430, 240]) < 40) {
+                milimeterSphere.radius = 40;
+            } else {
+                milimeterSphere.radius = 30;
+            }
+            if (hectoSphere.radius == 40 && decaSphere.radius == 40 && meterSphere.radius == 40 &&
+                decimeterSphere.radius == 40 && centimeterSphere.radius == 40 && milimeterSphere.radius == 40) {
+                succEnd = document.getElementById('successful');
+                succEnd.innerHTML = 'Браво, ти успя!';
+            } else {
+                succEnd = document.getElementById('successful');
+                succEnd.innerHTML = '';
+            }
+        }
+    </script>
+    <style>
+        #tenHectometers {
+            position: relative;
+            top: 610px;
+            right: -480px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        #tenDecameters {
+            position: relative;
+            top: 450px;
+            right: -480px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        #tenMeters {
+            position: relative;
+            top: 288px;
+            right: -510px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        #tenDecimeters {
+            position: relative;
+            top: 117px;
+            right: -480px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        #tenCentimeters {
+            position: relative;
+            top: -45px;
+            right: -480px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        #tenMillimeters {
+            position: relative;
+            top: -210px;
+            right: -480px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        #hectometersInfo {
+            position: relative;
+            top: -290px;
+            right: 490px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        #decametersInfo {
+            position: relative;
+            top: -260px;
+            right: 490px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        #metersInfo {
+            position: relative;
+            top: -235px;
+            right: 490px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        #decimetersInfo {
+            position: relative;
+            top: -210px;
+            right: 510px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        #centimetersInfo {
+            position: relative;
+            top: -190px;
+            right: 490px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        #millimetersInfo {
+            position: relative;
+            top: -165px;
+            right: 490px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        #successful {
+            position: relative;
+            top: 50px;
+            right: 490px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body onload="main()">
+    <span id="n1" style="position:fixed; padding: 0.25em; "></span>
+    <canvas id="1" width="1300" height="700" style="border: solid 1px black; background-color: rgb(139, 255, 255);"></canvas>
+    <h2>Задача с мерни единици</h2>
+    <p id="task">
+        Това е задача, чрез която ще разберете до колко сте разбрали материала за мерните единици за разстояние. На всяко сиво кръгче трябва да поставите съответния цвят сфера и ако тя стане по-голяма, то значи сте познали.
+    </p>
+    <p id="tenHectometers">10 hectometers</p>
+    <p id="tenDecameters">10 decameters</p>
+    <p id="tenMeters">10 meters</p>
+    <p id="tenDecimeters">10 decimeters</p>
+    <p id="tenCentimeters">10 centimeters</p>
+    <p id="tenMillimeters">10 millimeters</p>
+    <p id="hectometersInfo"> - 1 kilometer</p>
+    <p id="decametersInfo"> - 1 hectometer</p>
+    <p id="metersInfo"> - 1 decameter</p>
+    <p id="decimetersInfo"> - 1 meter</p>
+    <p id="centimetersInfo"> - 1 decimeter</p>
+    <p id="millimetersInfo"> - 1 centimeter</p>
+    <p id="successful"></p>
+    <button type="button" id="buttonBack"><a href="index.html">Назад</button>
+</body>
